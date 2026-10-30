@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#060913;--bg2:#0a1023;--panel:#0d1430;--panel2:#121b3c;
+  --bg:#060913;--bg2:#0a1023;--panel:rgba(13,20,48,.84);--panel2:#121b3c;
   --line:rgba(130,160,255,.13);--line2:rgba(130,160,255,.28);
   --text:#e9edff;--muted:#8f9ac0;--dim:#5d6890;
   --cyan:#3ce6f0;--cyan-d:#19b3c0;--violet:#6d5cff;--pink:#ff3f8e;--lime:#95ff6f;--amber:#ffc24d;
@@ -35,7 +35,7 @@ img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 :focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
-.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px;position:relative;z-index:2}
 .mono{font-family:var(--mono)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
@@ -74,8 +74,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .btn-sm{padding:11px 15px;font-size:14px;border-radius:12px}
 
 /* ===== Hero ===== */
-.hero{position:relative;min-height:calc(100vh - 100px);display:flex;align-items:center;padding:64px 0 56px;overflow:hidden;isolation:isolate}
-.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero{position:relative;min-height:calc(100vh - 100px);display:flex;align-items:center;padding:64px 0 56px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
 .hero-bg::after{content:"";position:absolute;inset:0;background:
   linear-gradient(90deg,rgba(6,9,19,.97) 0%,rgba(6,9,19,.86) 40%,rgba(6,9,19,.35) 75%,rgba(6,9,19,.55) 100%),
@@ -295,7 +295,7 @@ select{width:100%;font:600 15px/1 var(--font);color:#fff;background:#0a1026;bord
 .stars{color:var(--amber);font-size:22px;letter-spacing:3px;margin:6px 0 4px}
 .rating .src{color:var(--muted);font-size:14px}
 .rating hr{border:0;border-top:1px dashed var(--line2);margin:18px 0}
-.chat{border:1px solid var(--line);background:#080d1f;border-radius:var(--r);overflow:hidden}
+.chat{border:1px solid var(--line);background:rgba(8,13,31,.86);border-radius:var(--r);overflow:hidden}
 .chat-top{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line);font:600 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .chat-top span:last-child{color:var(--lime)}
 .msgs{list-style:none;padding:8px 18px 14px;display:grid}
@@ -357,6 +357,17 @@ body.owner .owner-badge{display:block;position:fixed;left:16px;bottom:16px;z-ind
 .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}
 
+/* ===== Живой фон «Сонар» ===== */
+.fx{position:fixed;left:0;top:0;width:100%;height:100%;z-index:1;pointer-events:none;display:block}
+.fx-hint{display:flex;align-items:center;gap:10px;margin-top:20px;font:500 13px/1.45 var(--mono);color:#aab4da}
+.fx-hint::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);flex:none;animation:pulse 2s infinite}
+.fx-toggle{position:fixed;right:16px;bottom:16px;z-index:62;display:inline-flex;align-items:center;gap:8px;font:600 12px/1 var(--mono);letter-spacing:.04em;color:#c9d0ef;
+  background:rgba(10,16,35,.86);border:1px solid var(--line2);padding:10px 13px;border-radius:999px;transition:border-color .2s,color .2s}
+.fx-toggle:hover{border-color:var(--cyan);color:#fff}
+.fx-toggle i{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.fx-toggle[aria-pressed="false"] i{background:var(--dim);box-shadow:none}
+.fx-toggle[hidden],.fx-hint[hidden]{display:none}
+
 /* ===== Адаптив ===== */
 @media (max-width:1080px){
   .nav-links{display:none}
@@ -404,6 +415,8 @@ body.owner .owner-badge{display:block;position:fixed;left:16px;bottom:16px;z-ind
     background:rgba(6,9,19,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line2)}
   .mbar .btn{padding:14px 10px}
   body.owner .owner-badge{bottom:84px}
+  .fx-toggle{display:none}
+  .hud-card{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(10,16,35,.9)}
 }
 @media (max-width:400px){
   .opt{padding:10px 11px;font-size:13.5px}
@@ -434,6 +447,8 @@ body.owner .owner-badge{display:block;position:fixed;left:16px;bottom:16px;z-ind
 <div class="demo-bar">Демо-версия нового сайта <b>Ping Cyber Club</b></div>
 <div class="wm" aria-hidden="true"></div>
 <div class="owner-badge">Режим владельца · заметки</div>
+<canvas class="fx" id="fx" aria-hidden="true"></canvas>
+<button type="button" class="fx-toggle" id="fx-toggle" aria-pressed="true" title="Включить или выключить живой фон"><i></i><span>Кит: вкл</span></button>
 
 <header class="nav">
   <div class="wrap">
@@ -480,7 +495,8 @@ body.owner .owner-badge{display:block;position:fixed;left:16px;bottom:16px;z-ind
         <span class="chip"><b>24/7</b> без выходных</span>
         <span class="chip"><b>★ 4,6</b> Яндекс Карты</span>
       </div>
-      <div class="owner-note"><b>Для владельца:</b> первый экран сразу отвечает на три вопроса гостя — где, сколько стоит и открыто ли сейчас. Часы на карточке справа живые, по московскому времени.</div>
+      <p class="fx-hint" id="fx-hint">Подвигай мышкой — за ней поплывёт кит. Кликни — и он ответит на пинг.</p>
+      <div class="owner-note"><b>Для владельца:</b> первый экран сразу отвечает на три вопроса гостя — где, сколько стоит и открыто ли сейчас. Часы на карточке справа живые, по московскому времени. Фон тоже живой и обыгрывает название клуба: ping — это сигнал сонара. Точки расступаются перед курсором, за ним плывёт кит из точек, а на клик он отвечает «pong» с настоящим временем в миллисекундах. Кнопка «Кит» в углу выключает эффект.</div>
     </div>
     <aside class="hud-card" aria-label="Статус клуба">
       <div class="hud-k">Сейчас в Пушкино</div>
@@ -1196,6 +1212,351 @@ body.owner .owner-badge{display:block;position:fixed;left:16px;bottom:16px;z-ind
   } else {
     rv.forEach(function(el){ el.classList.add('in'); });
   }
+})();
+</script>
+<script>
+// Живой фон «Сонар»: поле точек расступается перед курсором, за курсором плывёт кит из точек.
+// Клик отправляет пинг; когда волна доходит до кита, он отвечает «pong» с реальным временем в мс.
+(function(){
+  'use strict';
+  var cv = document.getElementById('fx');
+  if (!cv || !cv.getContext) return;
+  var ctx = cv.getContext('2d');
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var touch = matchMedia('(hover: none)').matches;
+  var btn = document.getElementById('fx-toggle'), hint = document.getElementById('fx-hint');
+  var on = true;
+  try { on = localStorage.getItem('ping_fx') !== 'off'; } catch(e){}
+
+  var W = 0, H = 0, SP = 27, cols = 0, rows = 0, FH = 0, dots = [];
+  var ptr = {x: -1e4, y: -1e4, rep: false, t: -1e9};
+  var rings = [], labels = [];
+  var N = 26, whale = {x: 0, y: 0, ang: 0, sp: 4, ph: 0, s: 1, spine: [], nextPing: 0};
+  var NB = 6, baseB = [], litB = [], lineB = [];
+  for (var b = 0; b < NB; b++){ baseB.push([]); litB.push([]); lineB.push([]); }
+  var FX = 0, FY = 0;
+
+  function mod(a, m){ return ((a % m) + m) % m; }
+
+  function build(){
+    W = innerWidth; H = innerHeight;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    SP = W < 760 ? 30 : 27;
+    cols = Math.ceil(W / SP) + 2; rows = Math.ceil(H / SP) + 3; FH = rows * SP;
+    dots = [];
+    var shift = scrollY * 0.22;
+    for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++){
+      var hx = c * SP + (r % 2 ? SP / 2 : 0) - SP / 2, hy0 = r * SP, hy = mod(hy0 - shift, FH) - SP;
+      dots.push({hx: hx, hy0: hy0, hy: hy, x: hx, y: hy, vx: 0, vy: 0, g: 0, p: 0, r: r, c: c, ph: Math.random() * 6.28});
+    }
+    whale.s = W < 760 ? 0.66 : 1.12;
+    if (!whale.spine.length) initWhale();
+  }
+
+  function initWhale(){
+    whale.x = -160; whale.y = H * 0.62; whale.ang = -0.2; whale.sp = 4.5; whale.spine = [];
+    for (var i = 0; i < N; i++) whale.spine.push({x: whale.x - i * 9 * whale.s, y: whale.y + i * 2});
+    whale.nextPing = performance.now() + 2600;
+  }
+
+  // Полуширина тела кита: u = 0 — голова, u = 1 — хвостовой стебель
+  function bodyW(u){
+    var head = u < 0.18 ? 0.62 + 0.38 * Math.sin(u / 0.18 * Math.PI / 2) : 1;
+    var tail = u > 0.3 ? 1 - 0.9 * Math.pow((u - 0.3) / 0.7, 1.15) : 1;
+    return 26 * head * tail;
+  }
+
+  function ping(x, y, kind, now){
+    var big = kind === 'click';
+    rings.push({x: x, y: y, r: 0, born: now, kind: kind, hit: !big,
+      v: big ? 13 : kind === 'pong' ? 6 : 4,
+      max: big ? Math.hypot(W, H) : kind === 'pong' ? 380 : 300,
+      push: big ? 2.4 : kind === 'pong' ? 1.2 : 0.5});
+    if (rings.length > 8) rings.shift();
+  }
+  function label(x, y, t, col){ labels.push({x: x, y: y, t: t, life: 1, col: col}); if (labels.length > 6) labels.shift(); }
+
+  function updWhale(dt, now){
+    var s = whale.s, tx, ty;
+    if (now - ptr.t < 7000){ tx = ptr.x; ty = ptr.y; }
+    else { tx = W * 0.55 + Math.cos(now * 0.00023) * W * 0.32; ty = H * 0.5 + Math.sin(now * 0.00037) * H * 0.3; }
+    var dx = tx - whale.x, dy = ty - whale.y, dist = Math.hypot(dx, dy);
+    var diff = Math.atan2(dy, dx) - whale.ang;
+    diff = Math.atan2(Math.sin(diff), Math.cos(diff));
+    var turn = 0.05 * dt;
+    whale.ang += Math.max(-turn, Math.min(turn, diff));
+    var want = dist > 120 * s ? Math.min(7.5, 1.6 + dist * 0.018) : 1.4;
+    whale.sp += (want - whale.sp) * 0.04 * dt;
+    whale.ph += (0.05 + whale.sp * 0.03) * dt;
+    var a = whale.ang + Math.sin(whale.ph * 0.5) * 0.04;
+    whale.x += Math.cos(a) * whale.sp * dt; whale.y += Math.sin(a) * whale.sp * dt;
+    var seg = 9 * s, sp = whale.spine;
+    sp[0].x = whale.x; sp[0].y = whale.y;
+    for (var i = 1; i < N; i++){
+      var px = sp[i].x - sp[i - 1].x, py = sp[i].y - sp[i - 1].y, l = Math.hypot(px, py) || 1;
+      sp[i].x = sp[i - 1].x + px / l * seg; sp[i].y = sp[i - 1].y + py / l * seg;
+    }
+    if (now > whale.nextPing){
+      ping(whale.x + Math.cos(whale.ang) * 14 * s, whale.y + Math.sin(whale.ang) * 14 * s, 'whale', now);
+      whale.nextPing = now + 3200 + Math.random() * 2400;
+    }
+  }
+
+  // Отталкивание точки от точки p; копит силу в FX/FY, возвращает близость 0..1
+  function push(d, p, r, r2, k){
+    var dx = d.x - p.x, dy = d.y - p.y, dd = dx * dx + dy * dy;
+    if (dd >= r2) return 0;
+    var dl = Math.sqrt(dd) || 1, f = 1 - dl / r;
+    FX += dx / dl * f * f * k; FY += dy / dl * f * f * k;
+    return f;
+  }
+
+  function drawWhale(){
+    var s = whale.s, sp = whale.spine, P = [], i, p;
+    for (i = 0; i < N; i++){
+      var a = sp[i > 0 ? i - 1 : 0], c = sp[i < N - 1 ? i + 1 : N - 1];
+      var tx = c.x - a.x, ty = c.y - a.y, tl = Math.hypot(tx, ty) || 1;
+      tx /= tl; ty /= tl;
+      var u = i / (N - 1), wv = Math.sin(whale.ph - i * 0.32) * 7 * s * Math.pow(u, 1.7);
+      P.push({x: sp[i].x - ty * wv, y: sp[i].y + tx * wv, tx: tx, ty: ty, nx: -ty, ny: tx, w: bodyW(u) * s});
+    }
+    var h = P[0], m = P[7];
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+
+    var gr = ctx.createRadialGradient(m.x, m.y, 0, m.x, m.y, 170 * s);
+    gr.addColorStop(0, 'rgba(60,230,240,0.15)'); gr.addColorStop(1, 'rgba(60,230,240,0)');
+    ctx.fillStyle = gr; ctx.fillRect(m.x - 170 * s, m.y - 170 * s, 340 * s, 340 * s);
+
+    ctx.fillStyle = 'rgba(60,230,240,0.09)'; ctx.strokeStyle = 'rgba(130,240,250,0.55)'; ctx.lineWidth = 1.1;
+
+    // Длинные грудные плавники, как у горбача
+    var fp = P[6], flap = Math.sin(whale.ph * 0.55) * 0.22, at = Math.atan2(fp.ty, fp.tx), L = 64 * s;
+    for (var side = -1; side <= 1; side += 2){
+      var bx = fp.x + fp.nx * fp.w * 0.85 * side, by = fp.y + fp.ny * fp.w * 0.85 * side;
+      var fa = at + side * (0.95 + flap), cx = Math.cos(fa), cy = Math.sin(fa);
+      ctx.beginPath();
+      ctx.moveTo(bx - fp.tx * 4 * s, by - fp.ty * 4 * s);
+      ctx.quadraticCurveTo(bx + cx * L * 0.5 - fp.tx * 9 * s, by + cy * L * 0.5 - fp.ty * 9 * s, bx + cx * L, by + cy * L);
+      ctx.quadraticCurveTo(bx + cx * L * 0.45 + fp.tx * 5 * s, by + cy * L * 0.45 + fp.ty * 5 * s, bx + fp.tx * 10 * s, by + fp.ty * 10 * s);
+      ctx.closePath(); ctx.fill(); ctx.stroke();
+    }
+
+    // Хвостовой плавник: при взмахе вверх-вниз сверху кажется то шире, то уже
+    var tp = P[N - 1], fs = s * (0.8 + 0.2 * Math.cos(whale.ph));
+    var F = [[0,0],[5,8],[12,20],[24,33],[19,17],[23,6],[17,0],[23,-6],[19,-17],[24,-33],[12,-20],[5,-8]];
+    ctx.beginPath();
+    for (i = 0; i < F.length; i++){
+      var X = tp.x + tp.tx * F[i][0] * s + tp.nx * F[i][1] * fs, Y = tp.y + tp.ty * F[i][0] * s + tp.ny * F[i][1] * fs;
+      if (i) ctx.lineTo(X, Y); else ctx.moveTo(X, Y);
+    }
+    ctx.closePath(); ctx.fill(); ctx.stroke();
+
+    // Тело с закруглённой мордой
+    ctx.beginPath();
+    ctx.moveTo(h.x + h.nx * h.w, h.y + h.ny * h.w);
+    for (i = 1; i < N; i++){ p = P[i]; ctx.lineTo(p.x + p.nx * p.w, p.y + p.ny * p.w); }
+    for (i = N - 1; i >= 0; i--){ p = P[i]; ctx.lineTo(p.x - p.nx * p.w, p.y - p.ny * p.w); }
+    ctx.quadraticCurveTo(h.x - h.tx * 16 * s, h.y - h.ty * 16 * s, h.x + h.nx * h.w, h.y + h.ny * h.w);
+    ctx.fillStyle = 'rgba(60,230,240,0.11)'; ctx.fill();
+    ctx.strokeStyle = 'rgba(130,240,250,0.7)'; ctx.lineWidth = 1.4; ctx.stroke();
+
+    // Тело из светящихся точек, по которым бежит волна
+    ctx.fillStyle = '#9ff6fb';
+    for (i = 1; i < N - 1; i++){
+      p = P[i];
+      var lanes = p.w > 15 * s ? 3 : p.w > 7 * s ? 2 : 1;
+      for (var k = -lanes; k <= lanes; k++){
+        var fr = k / (lanes + 0.7);
+        ctx.globalAlpha = 0.16 + 0.6 * Math.max(0, Math.sin(whale.ph * 1.4 - i * 0.5 + k * 0.9));
+        ctx.fillRect(p.x + p.nx * p.w * fr - 1, p.y + p.ny * p.w * fr - 1, 2, 2);
+      }
+    }
+    ctx.globalAlpha = 1; ctx.fillStyle = '#ffffff';
+    var e = P[2];
+    ctx.fillRect(e.x + e.nx * e.w * 0.72 - 1.5, e.y + e.ny * e.w * 0.72 - 1.5, 3, 3);
+    ctx.fillRect(e.x - e.nx * e.w * 0.72 - 1.5, e.y - e.ny * e.w * 0.72 - 1.5, 3, 3);
+    ctx.restore();
+  }
+
+  function fillBuckets(B, size, color, a0, a1){
+    ctx.fillStyle = color;
+    for (var b = 0; b < NB; b++){
+      var arr = B[b]; if (!arr.length) continue;
+      ctx.globalAlpha = a0 + (a1 - a0) * (b + 1) / NB;
+      ctx.beginPath();
+      for (var j = 0; j < arr.length; j += 2) ctx.rect(arr[j] - size / 2, arr[j + 1] - size / 2, size, size);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function step(dt, now){
+    ctx.clearRect(0, 0, W, H);
+    var s = whale.s, i, j, b, d, g;
+    updWhale(dt, now);
+
+    var head = whale.spine[0];
+    for (i = rings.length - 1; i >= 0; i--){
+      g = rings[i];
+      g.r += g.v * dt;
+      if (!g.hit && g.r >= Math.hypot(head.x - g.x, head.y - g.y)){
+        g.hit = true;
+        ping(head.x, head.y, 'pong', now);
+        label(head.x, head.y - 34 * s, 'pong · ' + Math.round(now - g.born) + ' мс', '149,255,111');
+        whale.nextPing = now + 3500;
+      }
+      if (g.r > g.max) rings.splice(i, 1);
+    }
+
+    var shift = scrollY * 0.22, R = W < 760 ? 110 : 130, R2 = R * R, LR = 200, LR2 = LR * LR;
+    var px = ptr.x, py = ptr.y, rep = ptr.rep;
+    var w0 = whale.spine[0], w1 = whale.spine[8], w2 = whale.spine[15], WR = 64 * s, WR2 = WR * WR;
+    var damp = Math.pow(0.86, dt), fade = Math.pow(0.9, dt), k = 0.045;
+    for (b = 0; b < NB; b++){ baseB[b].length = 0; litB[b].length = 0; lineB[b].length = 0; }
+
+    for (i = 0; i < dots.length; i++){
+      d = dots[i];
+      var hy = mod(d.hy0 - shift, FH) - SP;
+      if (Math.abs(hy - d.hy) > FH / 2) d.y += hy - d.hy;
+      d.hy = hy;
+      var ax = (d.hx - d.x) * k, ay = (hy - d.y) * k, dx, dy, dd, dl, f;
+      d.p = 0;
+      if (rep){
+        dx = d.x - px; dy = d.y - py; dd = dx * dx + dy * dy;
+        if (dd < LR2){
+          dl = Math.sqrt(dd) || 1;
+          d.p = 1 - dl / LR;
+          if (dd < R2){ f = 1 - dl / R; f = f * f * 3.2; ax += dx / dl * f; ay += dy / dl * f; }
+        }
+      }
+      FX = 0; FY = 0;
+      var wl = push(d, w0, WR, WR2, 2.6);
+      push(d, w1, WR, WR2, 2.2); push(d, w2, WR * 0.8, WR2 * 0.64, 1.6);
+      ax += FX; ay += FY;
+      for (j = 0; j < rings.length; j++){
+        g = rings[j];
+        dx = d.x - g.x; dy = d.y - g.y;
+        dl = Math.sqrt(dx * dx + dy * dy) || 1;
+        var gap = Math.abs(dl - g.r);
+        if (gap < 20){
+          var q = (1 - gap / 20) * (1 - g.r / g.max);
+          ax += dx / dl * q * g.push; ay += dy / dl * q * g.push;
+          if (q > d.g) d.g = q;
+        }
+      }
+      d.g *= fade;
+      d.vx = (d.vx + ax * dt) * damp; d.vy = (d.vy + ay * dt) * damp;
+      d.x += d.vx * dt; d.y += d.vy * dt;
+      if (d.y < -SP || d.y > H + SP) continue;
+      var base = 0.11 + 0.05 * Math.sin(now * 0.0012 + d.ph);
+      baseB[Math.max(0, Math.min(NB - 1, Math.floor((base - 0.05) / 0.12 * NB)))].push(d.x, d.y);
+      var lit = Math.max(d.p * 0.85, d.g, wl * 0.6);
+      if (lit > 0.05) litB[Math.min(NB - 1, Math.floor(lit * NB))].push(d.x, d.y);
+    }
+
+    // Сетка между соседними точками вокруг курсора
+    if (rep){
+      for (i = 0; i < dots.length; i++){
+        d = dots[i]; if (d.p < 0.05) continue;
+        var nb = [d.c < cols - 1 ? i + 1 : -1];
+        if (d.r % 2){ nb.push(i + cols, d.c < cols - 1 ? i + cols + 1 : -1); }
+        else { nb.push(d.c > 0 ? i + cols - 1 : -1, i + cols); }
+        for (j = 0; j < 3; j++){
+          var n = dots[nb[j]]; if (!n || n.p < 0.05) continue;
+          if (Math.abs(n.y - d.y) > SP * 2 || Math.abs(n.x - d.x) > SP * 2) continue;
+          lineB[Math.min(NB - 1, Math.floor(Math.min(d.p, n.p) * NB))].push(d.x, d.y, n.x, n.y);
+        }
+      }
+      ctx.strokeStyle = 'rgb(60,230,240)'; ctx.lineWidth = 1;
+      for (b = 0; b < NB; b++){
+        var L = lineB[b]; if (!L.length) continue;
+        ctx.globalAlpha = 0.05 + 0.35 * (b + 1) / NB;
+        ctx.beginPath();
+        for (j = 0; j < L.length; j += 4){ ctx.moveTo(L[j], L[j + 1]); ctx.lineTo(L[j + 2], L[j + 3]); }
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    fillBuckets(baseB, 1.7, 'rgb(150,170,255)', 0.05, 0.17);
+
+    ctx.lineWidth = 1.5;
+    for (i = 0; i < rings.length; i++){
+      g = rings[i];
+      var col = g.kind === 'click' ? '255,63,142' : g.kind === 'pong' ? '149,255,111' : '60,230,240';
+      ctx.strokeStyle = 'rgba(' + col + ',' + (0.42 * (1 - g.r / g.max)) + ')';
+      ctx.beginPath(); ctx.arc(g.x, g.y, g.r, 0, 6.2832); ctx.stroke();
+    }
+
+    drawWhale();
+    fillBuckets(litB, 2.4, 'rgb(130,245,252)', 0.1, 0.95);
+
+    ctx.font = '600 12px "JetBrains Mono", ui-monospace, monospace';
+    ctx.textAlign = 'center';
+    for (i = labels.length - 1; i >= 0; i--){
+      var lb = labels[i];
+      lb.life -= 0.011 * dt; lb.y -= 0.35 * dt;
+      if (lb.life <= 0){ labels.splice(i, 1); continue; }
+      ctx.fillStyle = 'rgba(' + lb.col + ',' + Math.min(1, lb.life * 1.4) + ')';
+      ctx.fillText(lb.t, lb.x, lb.y);
+    }
+  }
+
+  function drawStatic(){
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = 'rgb(150,170,255)'; ctx.globalAlpha = 0.1;
+    ctx.beginPath();
+    for (var i = 0; i < dots.length; i++) ctx.rect(dots[i].x - 0.8, dots[i].y - 0.8, 1.6, 1.6);
+    ctx.fill(); ctx.globalAlpha = 1;
+  }
+
+  var raf = 0, last = 0;
+  function loop(now){
+    raf = requestAnimationFrame(loop);
+    var dt = last ? Math.min(2.5, (now - last) / 16.667) : 1;
+    last = now;
+    step(dt, now);
+  }
+  function start(){ if (!raf && on && !reduce && !document.hidden){ last = 0; raf = requestAnimationFrame(loop); } }
+  function stop(){ cancelAnimationFrame(raf); raf = 0; }
+
+  build();
+  if (reduce){ drawStatic(); if (btn) btn.hidden = true; if (hint) hint.hidden = true; return; }
+  if (hint) hint.textContent = touch ? 'Коснись экрана — кит приплывёт к пальцу и ответит на пинг.' : 'Подвигай мышкой — за ней поплывёт кит. Кликни — и он ответит на пинг.';
+
+  function setOn(v){
+    on = v;
+    btn.setAttribute('aria-pressed', String(v));
+    btn.lastElementChild.textContent = v ? 'Кит: вкл' : 'Кит: выкл';
+    try { localStorage.setItem('ping_fx', v ? 'on' : 'off'); } catch(e){}
+    if (v) start(); else { stop(); drawStatic(); }
+  }
+  btn.addEventListener('click', function(){ setOn(!on); });
+  setOn(on);
+
+  function track(x, y){ ptr.x = x; ptr.y = y; ptr.rep = true; ptr.t = performance.now(); }
+  addEventListener('pointermove', function(e){ track(e.clientX, e.clientY); }, {passive: true});
+  addEventListener('touchmove', function(e){ var t = e.touches[0]; if (t) track(t.clientX, t.clientY); }, {passive: true});
+  addEventListener('touchend', function(){ ptr.rep = false; }, {passive: true});
+  document.addEventListener('mouseout', function(e){ if (!e.relatedTarget) ptr.rep = false; });
+  addEventListener('pointerdown', function(e){
+    if (!on || (e.target.closest && e.target.closest('#arena, #fx-toggle'))) return;
+    track(e.clientX, e.clientY);
+    ping(e.clientX, e.clientY, 'click', performance.now());
+    label(e.clientX, e.clientY - 18, 'P!NG', '255,63,142');
+  }, {passive: true});
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) stop(); else start(); });
+  var rt;
+  addEventListener('resize', function(){
+    clearTimeout(rt);
+    rt = setTimeout(function(){
+      if (innerWidth !== W || Math.abs(innerHeight - H) > 120){ build(); if (!on) drawStatic(); }
+    }, 150);
+  });
 })();
 </script>
 </body>
