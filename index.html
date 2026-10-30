@@ -1309,7 +1309,7 @@ body.owner .owner-badge{display:block;position:fixed;left:16px;bottom:16px;z-ind
       c = i % cols;
       lf = c > 0 ? hh[i - 1] : hh[i]; rt = c < cols - 1 ? hh[i + 1] : hh[i];
       up = hh[i >= cols ? i - cols : i + n - cols]; dn = hh[i + cols < n ? i + cols : i + cols - n];
-      hv[i] = (hv[i] + ((lf + rt + up + dn) * 0.25 - hh[i]) * 0.45) * 0.985;
+      hv[i] = (hv[i] + ((lf + rt + up + dn) * 0.25 - hh[i]) * 0.45) * 0.972;
     }
     for (i = 0; i < n; i++){ var v = (hh[i] + hv[i]) * 0.999; hh[i] = v > 40 ? 40 : v < -40 ? -40 : v; }
   }
@@ -1401,7 +1401,7 @@ body.owner .owner-badge{display:block;position:fixed;left:16px;bottom:16px;z-ind
     var a = whale.ang + Math.sin(whale.ph * 0.5) * 0.04;
     whale.x += Math.cos(a) * whale.sp * dt; whale.y += Math.sin(a) * whale.sp * dt;
     follow(whale.spine, whale.x, whale.y, 9 * s);
-    if (frame % 6 === 0) inject(whale.x, whale.y, 1 + whale.sp * 0.35);
+    if (frame % 6 === 0) inject(whale.x, whale.y, 0.5 + whale.sp * 0.15);
     if (now > whale.nextPing){
       ping(whale.x + Math.cos(whale.ang) * 14 * s, whale.y + Math.sin(whale.ang) * 14 * s, 'whale', now);
       whale.nextPing = now + 3200 + Math.random() * 2400;
@@ -1464,7 +1464,7 @@ body.owner .owner-badge{display:block;position:fixed;left:16px;bottom:16px;z-ind
       label(x, y - 26, 'акула, ко мне!', '255,63,142');
     }
     ping(x, y, 'shark', now);
-    inject(x, y, 16);
+    inject(x, y, 8);
   }
 
   function updShark(dt, now){
@@ -1483,7 +1483,7 @@ body.owner .owner-badge{display:block;position:fixed;left:16px;bottom:16px;z-ind
     var a = k.ang + Math.sin(k.ph * 0.5) * 0.05;
     k.x += Math.cos(a) * k.sp * dt; k.y += Math.sin(a) * k.sp * dt;
     follow(k.spine, k.x, k.y, 8 * s);
-    if (frame % 5 === 0) inject(k.x, k.y, 1.5 + k.sp * 0.35);
+    if (frame % 5 === 0) inject(k.x, k.y, 0.6 + k.sp * 0.15);
   }
 
   function drawShark(){
@@ -1575,7 +1575,7 @@ body.owner .owner-badge{display:block;position:fixed;left:16px;bottom:16px;z-ind
       if (ptr.lx === null){ ptr.lx = ptr.x; ptr.ly = ptr.y; }
       var mdx = ptr.x - ptr.lx, mdy = ptr.y - ptr.ly, md = Math.hypot(mdx, mdy);
       if (md > 1.5){
-        var ns = Math.min(10, Math.ceil(md / (SP * 0.6))), amt = Math.min(14, Math.max(1, md * 0.45)) / Math.sqrt(ns);
+        var ns = Math.min(10, Math.ceil(md / (SP * 0.6))), amt = Math.min(5, Math.max(0.6, md * 0.16)) / Math.sqrt(ns);
         for (j = 1; j <= ns; j++) inject(ptr.lx + mdx * j / ns, ptr.ly + mdy * j / ns, amt);
         ptr.lx = ptr.x; ptr.ly = ptr.y;
       }
@@ -1593,7 +1593,7 @@ body.owner .owner-badge{display:block;position:fixed;left:16px;bottom:16px;z-ind
       if (!g.hit && g.r >= Math.hypot(head.x - g.x, head.y - g.y)){
         g.hit = true;
         ping(head.x, head.y, 'pong', now);
-        inject(head.x, head.y, 10);
+        inject(head.x, head.y, 5);
         label(head.x, head.y - 34 * s, 'pong · ' + Math.round(now - g.born) + ' мс', '149,255,111');
         whale.nextPing = now + 3500;
       }
@@ -1646,15 +1646,15 @@ body.owner .owner-badge{display:block;position:fixed;left:16px;bottom:16px;z-ind
       var cc = d.c, wh = hh[i];
       var lf = cc > 0 ? hh[i - 1] : wh, rt = cc < cols - 1 ? hh[i + 1] : wh;
       var up = hh[i >= cols ? i - cols : i + n - cols], dn = hh[i + cols < n ? i + cols : i + cols - n];
-      var wx = (rt - lf) * 2.4, wy = (dn - up) * 2.4;
-      d.X = d.x + (wx > 12 ? 12 : wx < -12 ? -12 : wx); d.Y = d.y + (wy > 12 ? 12 : wy < -12 ? -12 : wy);
+      var wx = (rt - lf) * 0.9, wy = (dn - up) * 0.9;
+      d.X = d.x + (wx > 4 ? 4 : wx < -4 ? -4 : wx); d.Y = d.y + (wy > 4 ? 4 : wy < -4 ? -4 : wy);
       if (d.Y < -SP || d.Y > H + SP) continue;
       var base = 0.11 + 0.05 * Math.sin(now * 0.0012 + d.ph);
       baseB[Math.max(0, Math.min(NB - 1, Math.floor((base - 0.05) / 0.12 * NB)))].push(d.X, d.Y);
-      var lit = Math.max(d.p * 0.85, d.g, wl * 0.6, wh > 0 ? wh * 0.17 : -wh * 0.06);
+      var lit = Math.max(d.p * 0.85, d.g, wl * 0.6, wh > 0 ? wh * 0.22 : -wh * 0.05);
       if (lit > 0.05) litB[Math.min(NB - 1, Math.floor(Math.min(lit, 0.99) * NB))].push(d.X, d.Y);
       // Блики на гребнях волн — точки крупнее и светлее
-      if (wh > 1.2) crestB[Math.min(NB - 1, Math.floor(Math.min(wh * 0.1, 0.99) * NB))].push(d.X, d.Y);
+      if (wh > 0.7) crestB[Math.min(NB - 1, Math.floor(Math.min(wh * 0.2, 0.99) * NB))].push(d.X, d.Y);
     }
 
     // Сетка между соседними точками вокруг курсора
@@ -1693,7 +1693,7 @@ body.owner .owner-badge{display:block;position:fixed;left:16px;bottom:16px;z-ind
     drawWhale();
     if (shark) drawShark();
     fillBuckets(litB, 2.4, 'rgb(130,245,252)', 0.1, 0.95);
-    fillBuckets(crestB, 3.4, 'rgb(205,252,255)', 0.15, 0.9);
+    fillBuckets(crestB, 3, 'rgb(205,252,255)', 0.12, 0.8);
 
     ctx.font = '600 12px "JetBrains Mono", ui-monospace, monospace';
     ctx.textAlign = 'center';
@@ -1769,7 +1769,7 @@ body.owner .owner-badge{display:block;position:fixed;left:16px;bottom:16px;z-ind
     if (!on || (e.target.closest && e.target.closest('#arena, #fx-dock, .shark-trigger'))) return;
     track(e.clientX, e.clientY);
     ping(e.clientX, e.clientY, 'click', performance.now());
-    inject(e.clientX, e.clientY, 26);
+    inject(e.clientX, e.clientY, 12);
     label(e.clientX, e.clientY - 18, 'P!NG', '255,63,142');
   }, {passive: true});
   document.addEventListener('visibilitychange', function(){ if (document.hidden) stop(); else start(); });
