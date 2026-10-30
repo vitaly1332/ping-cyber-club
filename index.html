@@ -1,0 +1,1202 @@
+<!doctype html>
+<!-- Демо-версия сайта Ping Cyber Club (Пушкино), не для публикации. Тексты, цены и фото взяты с Яндекс Карт, Langame, Cybersportclubs и из новостей клуба. -->
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Ping Cyber Club — компьютерный клуб в Пушкино 24/7 · демо</title>
+<meta name="description" content="Демо-версия сайта Ping Cyber Club: компьютерный клуб в Пушкино, Московский проспект, 57к2. 19 ПК, мониторы 144 Гц, Bootcamp, PS5. Круглосуточно.">
+<meta name="theme-color" content="#060913">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23060913'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Arial Black,Arial' font-weight='900' font-size='34' fill='%233ce6f0'%3EP!%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060913;--bg2:#0a1023;--panel:#0d1430;--panel2:#121b3c;
+  --line:rgba(130,160,255,.13);--line2:rgba(130,160,255,.28);
+  --text:#e9edff;--muted:#8f9ac0;--dim:#5d6890;
+  --cyan:#3ce6f0;--cyan-d:#19b3c0;--violet:#6d5cff;--pink:#ff3f8e;--lime:#95ff6f;--amber:#ffc24d;
+  --r:20px;--r-s:12px;
+  --font:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --head:'Unbounded','Manrope',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
+  --wrap:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--text);font:16px/1.6 var(--font);overflow-x:hidden;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(900px 600px at 85% -10%,rgba(109,92,255,.20),transparent 60%),
+             radial-gradient(700px 500px at -10% 40%,rgba(60,230,240,.08),transparent 60%),
+             radial-gradient(800px 600px at 100% 100%,rgba(255,63,142,.07),transparent 60%)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.mono{font-family:var(--mono)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ===== ДЕМО: плашка, водяной знак ===== */
+.demo-bar{position:relative;z-index:70;background:linear-gradient(90deg,#ff3f8e,#6d5cff);color:#fff;text-align:center;
+  font:600 13px/1.3 var(--mono);padding:8px 14px;letter-spacing:.02em}
+.demo-bar b{font-weight:700}
+.wm{position:fixed;inset:0;z-index:65;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='440' height='280'%3E%3Ctext x='220' y='150' fill='white' fill-opacity='0.05' font-family='Arial,sans-serif' font-size='26' font-weight='700' letter-spacing='5' text-anchor='middle' transform='rotate(-28 220 140)'%3E%D0%94%D0%95%D0%9C%D0%9E-%D0%92%D0%95%D0%A0%D0%A1%D0%98%D0%AF%3C/text%3E%3C/svg%3E");
+  background-size:440px 280px}
+.ph{position:relative;overflow:hidden;background:#0b1126}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph-tag{position:absolute;right:8px;bottom:8px;z-index:3;font:600 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.88);background:rgba(6,9,19,.62);border:1px solid rgba(255,255,255,.18);padding:4px 6px;border-radius:6px;pointer-events:none}
+
+/* ===== Навигация ===== */
+.nav{position:sticky;top:0;z-index:50;background:rgba(6,9,19,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:24px;height:66px}
+.logo{display:flex;flex-direction:column;line-height:1;gap:4px;flex:none}
+.logo-word{font:900 26px/1 var(--head);letter-spacing:.02em;color:var(--cyan);text-shadow:0 0 18px rgba(60,230,240,.45)}
+.logo-word i{font-style:normal;color:#fff;text-shadow:0 0 14px rgba(255,255,255,.5)}
+.logo-sub{font:600 8.5px/1 var(--mono);letter-spacing:.32em;color:var(--muted);text-transform:uppercase}
+.nav-links{display:flex;gap:4px;margin-left:auto}
+.nav-links a{font:600 14px/1 var(--font);color:var(--muted);padding:10px 12px;border-radius:10px;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--text);background:rgba(130,160,255,.08)}
+.nav-cta{display:flex;gap:8px;flex:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font:700 15px/1 var(--font);padding:14px 20px;border-radius:14px;
+  transition:transform .15s,box-shadow .2s,background .2s,border-color .2s;white-space:nowrap}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-main{background:var(--cyan);color:#041016;box-shadow:0 8px 28px -8px rgba(60,230,240,.7)}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 12px 34px -8px rgba(60,230,240,.85)}
+.btn-ghost{border:1px solid var(--line2);background:rgba(18,27,60,.55)}
+.btn-ghost:hover{border-color:var(--cyan);transform:translateY(-2px)}
+.btn-wa{background:#25d366;color:#04210f}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 10px 26px -10px rgba(37,211,102,.8)}
+.btn-sm{padding:11px 15px;font-size:14px;border-radius:12px}
+
+/* ===== Hero ===== */
+.hero{position:relative;min-height:calc(100vh - 100px);display:flex;align-items:center;padding:64px 0 56px;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.hero-bg::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(6,9,19,.97) 0%,rgba(6,9,19,.86) 40%,rgba(6,9,19,.35) 75%,rgba(6,9,19,.55) 100%),
+  linear-gradient(0deg,var(--bg) 0%,transparent 28%)}
+.hero .ph-tag{bottom:18px;right:18px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:48px;align-items:center}
+.hud-line{display:inline-flex;align-items:center;gap:10px;font:600 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--lime);
+  border:1px solid rgba(149,255,111,.3);background:rgba(149,255,111,.06);padding:8px 12px;border-radius:999px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 rgba(149,255,111,.7);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(149,255,111,.6)}70%{box-shadow:0 0 0 10px rgba(149,255,111,0)}100%{box-shadow:0 0 0 0 rgba(149,255,111,0)}}
+.hero h1{font:800 clamp(38px,6.2vw,78px)/1.02 var(--head);letter-spacing:-.02em;margin:22px 0 22px}
+.hero h1 .c{color:var(--cyan);text-shadow:0 0 30px rgba(60,230,240,.35)}
+.hero h1 .p{color:var(--pink)}
+.hero-lead{font-size:clamp(16px,1.6vw,19px);color:#c5cceb;max-width:560px}
+.hero-lead b{color:#fff}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.chip{display:inline-flex;align-items:center;gap:8px;font:600 13px/1 var(--mono);color:#cfd6f5;padding:10px 13px;border-radius:12px;border:1px solid var(--line2);background:rgba(13,20,48,.66)}
+.chip b{color:var(--cyan);font-weight:700}
+.hud-card{position:relative;border:1px solid var(--line2);background:rgba(10,16,35,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:var(--r);padding:24px}
+.hud-card::before,.hud-card::after{content:"";position:absolute;width:18px;height:18px;border:2px solid var(--cyan)}
+.hud-card::before{top:-1px;left:-1px;border-right:0;border-bottom:0;border-radius:var(--r) 0 0 0}
+.hud-card::after{bottom:-1px;right:-1px;border-left:0;border-top:0;border-radius:0 0 var(--r) 0}
+.hud-k{font:600 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.hud-time{font:700 54px/1 var(--mono);letter-spacing:-.02em;margin:10px 0 6px;color:#fff}
+.hud-open{display:flex;align-items:center;gap:8px;color:var(--lime);font-weight:700}
+.hud-list{list-style:none;margin-top:18px;border-top:1px dashed var(--line2);padding-top:16px;display:grid;gap:10px}
+.hud-list li{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:#c9d0ef}
+.hud-list li span:last-child{font-family:var(--mono);color:#fff;font-weight:600;text-align:right}
+.hud-tip{margin-top:16px;padding:12px 14px;border-radius:12px;background:rgba(255,194,77,.08);border:1px solid rgba(255,194,77,.3);color:#ffe2a6;font-size:14px}
+
+/* ===== Секции ===== */
+section{position:relative}
+.sec{padding:96px 0}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:40px}
+.kicker{font:600 12px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:14px}
+.kicker::before{content:"// "}
+h2{font:800 clamp(28px,4vw,46px)/1.08 var(--head);letter-spacing:-.015em}
+.sec-sub{color:var(--muted);max-width:520px}
+.note{font-size:13px;color:var(--dim);margin-top:18px}
+.note a{color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+
+/* ===== Зоны ===== */
+.zones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.zone{position:relative;border-radius:var(--r);border:1px solid var(--line);background:var(--panel);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,border-color .25s,box-shadow .25s}
+.zone:hover{transform:translateY(-6px);border-color:var(--zc,var(--cyan));box-shadow:0 24px 50px -24px var(--zc,var(--cyan))}
+.zone .ph{aspect-ratio:4/3}
+.zone .ph img{transition:transform .6s}
+.zone:hover .ph img{transform:scale(1.05)}
+.zone-badge{position:absolute;top:14px;left:14px;z-index:3;font:700 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:7px 10px;border-radius:8px;background:var(--zc,var(--cyan));color:#050812}
+.zone-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.zone h3{font:800 22px/1.15 var(--head);display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.zone h3 small{font:600 13px/1 var(--mono);color:var(--zc,var(--cyan))}
+.zone p{color:var(--muted);font-size:15px;margin:10px 0 16px}
+.specs{list-style:none;display:grid;gap:8px;margin-bottom:20px}
+.specs li{display:flex;gap:10px;font-size:14px;color:#cdd4f2}
+.specs li::before{content:"▸";color:var(--zc,var(--cyan));flex:none}
+.zone-price{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:16px}
+.zone-price b{font:700 22px/1 var(--mono)}
+.zone-price span{font-size:13px;color:var(--muted)}
+.zone-price a{font:700 13px/1 var(--mono);color:var(--zc,var(--cyan));letter-spacing:.04em}
+
+/* ===== Прайс ===== */
+.price-wrap{border:1px solid var(--line);background:var(--panel);border-radius:var(--r);padding:26px}
+.price-top{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;margin-bottom:22px}
+.seg{display:inline-flex;padding:4px;border-radius:14px;background:#080d1f;border:1px solid var(--line)}
+.seg button{padding:10px 16px;border-radius:10px;font-weight:700;font-size:14px;color:var(--muted);transition:background .2s,color .2s}
+.seg button[aria-pressed="true"]{background:var(--panel2);color:#fff;box-shadow:inset 0 0 0 1px var(--line2)}
+.thu-flag{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#ffe2a6}
+.ptable{width:100%;border-collapse:collapse}
+.ptable th,.ptable td{padding:14px 12px;text-align:left;border-bottom:1px solid var(--line)}
+.ptable thead th{font:600 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.ptable thead th.st{color:var(--cyan)}
+.ptable thead th.bc{color:var(--lime)}
+.ptable td:first-child{font-weight:700}
+.ptable td small{display:block;font-weight:500;color:var(--dim);font-size:12.5px;margin-top:2px}
+.ptable td.n{font:700 18px/1 var(--mono);white-space:nowrap}
+.ptable td.n em{font-style:normal;font-size:12px;color:var(--dim);font-weight:600;margin-left:6px}
+.ptable tr.thu td{background:rgba(255,194,77,.05)}
+.ptable tr.thu td:first-child{color:#ffd27a}
+.ptable tr.best td:first-child::after{content:"выгодно";margin-left:8px;font:700 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:4px 6px;border-radius:6px;background:rgba(149,255,111,.14);color:var(--lime);vertical-align:2px}
+.ptable tbody tr:last-child td{border-bottom:0}
+.ptable-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* ===== Калькулятор ===== */
+.calc{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:24px;align-items:start}
+.calc-form{border:1px solid var(--line);background:var(--panel);border-radius:var(--r);padding:26px;display:grid;gap:24px}
+.field>label,.field>.lbl{display:block;font:600 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{padding:11px 14px;border-radius:12px;border:1px solid var(--line2);background:#0a1026;font-weight:700;font-size:14px;color:#cdd4f2;transition:border-color .15s,background .15s,color .15s}
+.opt small{display:block;font:500 11px/1.2 var(--mono);color:var(--dim);margin-top:3px}
+.opt:hover{border-color:var(--cyan)}
+.opt[aria-pressed="true"]{border-color:var(--cyan);background:rgba(60,230,240,.12);color:#fff}
+.opt[aria-pressed="true"] small{color:var(--cyan)}
+.opt.thu small{color:#ffd27a}
+.stepper{display:inline-flex;align-items:center;border:1px solid var(--line2);border-radius:14px;overflow:hidden;background:#0a1026}
+.stepper button{width:48px;height:48px;font:700 22px/1 var(--mono);color:var(--cyan)}
+.stepper button:disabled{color:var(--dim);cursor:not-allowed}
+.stepper output{min-width:64px;text-align:center;font:700 22px/1 var(--mono)}
+.stepper-hint{margin-left:12px;font-size:13px;color:var(--dim)}
+.range{display:flex;align-items:center;gap:16px}
+.range input{flex:1;accent-color:var(--cyan);height:28px}
+.range output{min-width:92px;text-align:right;font:700 18px/1 var(--mono);color:#fff}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+select{width:100%;font:600 15px/1 var(--font);color:#fff;background:#0a1026;border:1px solid var(--line2);border-radius:12px;padding:13px 14px;appearance:none;-webkit-appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--cyan) 50%),linear-gradient(135deg,var(--cyan) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+.switch{display:flex;align-items:center;gap:12px;cursor:pointer;font-weight:600;font-size:15px;color:#cdd4f2}
+.switch input{position:absolute;opacity:0}
+.switch .tr{width:46px;height:26px;border-radius:99px;background:#1a2550;position:relative;flex:none;transition:background .2s}
+.switch .tr::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .2s}
+.switch input:checked+.tr{background:var(--cyan-d)}
+.switch input:checked+.tr::after{transform:translateX(20px)}
+.switch input:focus-visible+.tr{outline:2px solid var(--cyan);outline-offset:3px}
+.switch small{display:block;font-weight:500;color:var(--dim);font-size:12.5px}
+.hidden{display:none!important}
+
+.receipt{position:sticky;top:90px;border-radius:var(--r);background:#f3f5fb;color:#141a2e;padding:26px 24px 24px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(60,230,240,.35)}
+.receipt::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:12px;background:radial-gradient(circle at 8px -2px,transparent 8px,var(--bg) 8.5px) 0 0/16px 12px repeat-x}
+.rc-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+.rc-head .logo-word{font-size:22px;color:#0b8f9a;text-shadow:none}
+.rc-head .logo-word i{color:#141a2e;text-shadow:none}
+.rc-head .logo-sub{color:#69708a}
+.rc-no{font:600 11px/1.5 var(--mono);color:#69708a;border-bottom:2px dashed #c7cde0;padding-bottom:14px;margin-bottom:14px}
+.rc-lines{list-style:none;display:grid;gap:9px;font:500 14px/1.35 var(--mono)}
+.rc-lines li{display:flex;justify-content:space-between;gap:14px}
+.rc-lines li span:first-child{color:#69708a;flex:none}
+.rc-lines li span:last-child{text-align:right;font-weight:700}
+.rc-total{display:flex;justify-content:space-between;align-items:baseline;border-top:2px dashed #c7cde0;margin-top:14px;padding-top:14px}
+.rc-total span{font:700 13px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.rc-total b{font:800 34px/1 var(--mono);letter-spacing:-.02em}
+.rc-hint{margin-top:12px;font-size:13.5px;line-height:1.45;padding:10px 12px;border-radius:10px;background:#e3f8f2;color:#0b5c4a}
+.rc-hint.warn{background:#fff3d9;color:#7a5200}
+.rc-hint:empty{display:none}
+.stamp{flex:none;transform:rotate(-8deg);border:3px double #e0245e;color:#e0245e;font:800 14px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:8px 10px;border-radius:8px;opacity:.82;pointer-events:none;background:rgba(243,245,251,.6)}
+.rc-btns{display:grid;gap:10px;margin-top:18px}
+.rc-btns .btn{width:100%}
+.rc-btns .btn-ghost{color:#141a2e;border-color:#c7cde0;background:#fff}
+.rc-small{font-size:12px;color:#69708a;margin-top:12px;line-height:1.45}
+
+/* ===== Квесты ===== */
+.quests{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.quest{border:1px solid var(--line);background:var(--panel);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s,transform .2s}
+.quest:hover{border-color:var(--line2);transform:translateY(-3px)}
+.q-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.q-ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:rgba(60,230,240,.1);border:1px solid rgba(60,230,240,.25)}
+.q-xp{font:700 12px/1 var(--mono);color:var(--lime);background:rgba(149,255,111,.1);border:1px solid rgba(149,255,111,.28);padding:7px 9px;border-radius:8px;white-space:nowrap}
+.quest h3{font:700 18px/1.25 var(--head)}
+.quest p{color:var(--muted);font-size:14.5px}
+.q-bar{height:6px;border-radius:9px;background:#141d40;overflow:hidden;margin-top:auto}
+.q-bar i{display:block;height:100%;width:var(--w,40%);background:linear-gradient(90deg,var(--violet),var(--cyan));border-radius:9px}
+
+/* ===== Тест пинга ===== */
+.ping-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:24px;align-items:stretch}
+.arena{position:relative;border-radius:var(--r);min-height:360px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;padding:28px;
+  border:1px solid var(--line2);background:#0a1026;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:manipulation;transition:background .08s,border-color .2s;overflow:hidden}
+.arena:hover{border-color:var(--cyan)}
+.arena .big{font:800 clamp(30px,4.6vw,56px)/1.05 var(--head)}
+.arena .small{color:var(--muted);font-size:15px;max-width:360px}
+.arena[data-state="wait"]{background:#1a0b1d;border-color:var(--pink)}
+.arena[data-state="wait"] .big{color:var(--pink)}
+.arena[data-state="go"]{background:var(--cyan);border-color:var(--cyan)}
+.arena[data-state="go"] .big,.arena[data-state="go"] .small{color:#03161a}
+.arena[data-state="early"]{background:#2a1408;border-color:var(--amber)}
+.arena[data-state="early"] .big{color:var(--amber)}
+.arena[data-state="done"] .big{color:var(--cyan)}
+.rounds{display:flex;gap:8px;margin-top:8px}
+.rounds i{width:34px;height:6px;border-radius:9px;background:#1b2650}
+.rounds i.ok{background:var(--cyan)}
+.arena[data-state="go"] .rounds i{background:rgba(3,22,26,.25)}
+.arena[data-state="go"] .rounds i.ok{background:#03161a}
+.rank{display:inline-block;margin-top:6px;font:700 13px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border-radius:8px;background:rgba(60,230,240,.12);border:1px solid rgba(60,230,240,.35);color:var(--cyan)}
+.ping-side{display:grid;gap:16px}
+.card{border:1px solid var(--line);background:var(--panel);border-radius:var(--r);padding:22px}
+.card h3{font:700 18px/1.25 var(--head);margin-bottom:10px}
+.card p{color:var(--muted);font-size:14.5px}
+.hz{display:grid;gap:12px;margin-top:14px}
+.hz-row{display:grid;grid-template-columns:62px 1fr 74px;align-items:center;gap:10px;font:600 13px/1 var(--mono)}
+.hz-row .bar{height:10px;border-radius:9px;background:#141d40;overflow:hidden}
+.hz-row .bar i{display:block;height:100%;border-radius:9px}
+.hz-row:first-child .bar i{width:100%;background:var(--pink)}
+.hz-row:last-child .bar i{width:41%;background:var(--cyan)}
+.score-list{list-style:none;display:grid;gap:8px;margin-top:12px;font:600 14px/1 var(--mono)}
+.score-list li{display:flex;justify-content:space-between;color:#cdd4f2}
+.score-list li span:last-child{color:var(--cyan)}
+
+/* ===== Галерея ===== */
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:220px;gap:14px}
+.gallery figure{border-radius:16px;border:1px solid var(--line)}
+.gallery .tall{grid-row:span 2}
+.gallery .wide{grid-column:span 2}
+.gallery figcaption{position:absolute;left:10px;bottom:10px;z-index:2;font:600 12.5px/1.2 var(--font);background:rgba(6,9,19,.7);padding:7px 10px;border-radius:8px;max-width:calc(100% - 80px)}
+.gal-more{display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding:20px;border-radius:16px;border:1px dashed var(--line2);background:rgba(13,20,48,.6);transition:border-color .2s}
+.gal-more:hover{border-color:var(--cyan)}
+.gal-more b{font:800 40px/1 var(--head);color:var(--cyan)}
+.gal-more span{color:var(--muted);font-size:14px}
+
+/* ===== Патчноуты ===== */
+.patch{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:start}
+.patch-photo{border-radius:var(--r);border:1px solid var(--line);aspect-ratio:4/3;position:sticky;top:90px}
+.patch-photo figcaption{position:absolute;left:12px;bottom:12px;z-index:2;font:600 12.5px/1.3 var(--mono);background:rgba(6,9,19,.72);padding:8px 10px;border-radius:8px}
+.log{list-style:none;position:relative;display:grid;gap:4px}
+.log::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--violet),var(--cyan))}
+.log li{position:relative;padding:12px 0 18px 42px}
+.log li::before{content:"";position:absolute;left:4px;top:16px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--cyan)}
+.log li.next::before{border-color:var(--pink);box-shadow:0 0 0 6px rgba(255,63,142,.15)}
+.log .v{font:700 12px/1 var(--mono);letter-spacing:.08em;color:var(--cyan)}
+.log .v em{font-style:normal;color:var(--dim);margin-left:8px}
+.log li.next .v{color:var(--pink)}
+.log h3{font:700 18px/1.3 var(--head);margin:8px 0 6px}
+.log p{color:var(--muted);font-size:14.5px}
+.log code{font:600 13px/1 var(--mono);color:var(--lime);background:rgba(149,255,111,.08);padding:2px 6px;border-radius:5px}
+
+/* ===== Отзывы ===== */
+.chat-grid{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:24px;align-items:start}
+.rating{border:1px solid var(--line);background:var(--panel);border-radius:var(--r);padding:26px}
+.rating .score{font:800 72px/1 var(--head);color:#fff}
+.stars{color:var(--amber);font-size:22px;letter-spacing:3px;margin:6px 0 4px}
+.rating .src{color:var(--muted);font-size:14px}
+.rating hr{border:0;border-top:1px dashed var(--line2);margin:18px 0}
+.chat{border:1px solid var(--line);background:#080d1f;border-radius:var(--r);overflow:hidden}
+.chat-top{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line);font:600 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.chat-top span:last-child{color:var(--lime)}
+.msgs{list-style:none;padding:8px 18px 14px;display:grid}
+.msg{padding:12px 0;border-bottom:1px solid rgba(130,160,255,.07);font-size:15px;line-height:1.5}
+.msg:last-child{border-bottom:0}
+.msg .who{font:700 14px/1 var(--mono);margin-right:8px}
+.msg .when{font:500 12px/1 var(--mono);color:var(--dim);float:right;margin-left:10px}
+.msg .st{color:var(--amber);font-size:12px;letter-spacing:1px;margin-right:6px}
+.msg p{color:#d3d9f4;margin-top:6px}
+
+/* ===== Как добраться ===== */
+.spawn{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
+.map{border-radius:var(--r);border:1px solid var(--line);overflow:hidden;min-height:440px;background:#0b1126;position:relative}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.9) hue-rotate(180deg) saturate(.7) brightness(.95)}
+.spawn-info{display:grid;gap:16px;align-content:start}
+.addr{font:800 clamp(22px,2.6vw,30px)/1.2 var(--head)}
+.facts{list-style:none;display:grid;gap:12px}
+.facts li{display:grid;grid-template-columns:24px 1fr;gap:12px;color:#cdd4f2;font-size:15px}
+.facts li svg{width:20px;height:20px;color:var(--cyan);margin-top:2px}
+.facts b{color:#fff}
+.contact-btns{display:flex;flex-wrap:wrap;gap:10px}
+.entry{display:grid;grid-template-columns:132px 1fr;gap:16px;align-items:center;border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:12px}
+.entry .ph{aspect-ratio:3/4;border-radius:10px}
+.entry p{color:var(--muted);font-size:14px}
+.entry b{color:#fff;display:block;margin-bottom:4px;font-size:15px}
+
+/* ===== FAQ ===== */
+.faq{display:grid;gap:10px;max-width:880px}
+.faq details{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:0 20px;transition:border-color .2s}
+.faq details[open]{border-color:var(--line2)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:16px;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:700 22px/1 var(--mono);color:var(--cyan);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);padding:0 0 18px;font-size:15px}
+
+/* ===== Футер ===== */
+footer{border-top:1px solid var(--line);padding:56px 0 40px;background:rgba(6,9,19,.6)}
+.foot{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
+.foot h4{font:600 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.foot ul{list-style:none;display:grid;gap:9px;font-size:15px}
+.foot ul a:hover{color:var(--cyan)}
+.foot p{color:var(--muted);font-size:14px;margin-top:12px;max-width:340px}
+.demo-note{margin-top:40px;border:1px dashed rgba(255,63,142,.5);background:rgba(255,63,142,.06);border-radius:16px;padding:18px 20px;font-size:14px;color:#ffc6dc;line-height:1.55}
+.demo-note b{color:#fff}
+.copy{margin-top:22px;font:500 12px/1.5 var(--mono);color:var(--dim)}
+
+/* ===== Мобильная панель ===== */
+.mbar{display:none}
+
+/* ===== Режим владельца (?owner=1) ===== */
+.owner-note{display:none}
+body.owner .owner-note{display:block;margin:18px 0 0;padding:14px 16px;border-radius:12px;background:#fff6c9;color:#3b2f00;font:500 14px/1.5 var(--font);box-shadow:0 10px 30px -14px rgba(255,214,0,.6);border-left:5px solid #ffcc00}
+body.owner .owner-note b{font-weight:800}
+.owner-badge{display:none}
+body.owner .owner-badge{display:block;position:fixed;left:16px;bottom:16px;z-index:80;background:#ffcc00;color:#3b2f00;font:700 12px/1 var(--mono);padding:10px 12px;border-radius:10px;letter-spacing:.06em}
+
+/* ===== Появление ===== */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+/* ===== Адаптив ===== */
+@media (max-width:1080px){
+  .nav-links{display:none}
+  .nav .wrap{justify-content:space-between}
+  .hero .wrap{grid-template-columns:1fr;gap:32px}
+  .hud-card{max-width:520px}
+  .zones{grid-template-columns:1fr 1fr}
+  .zones .zone:last-child{grid-column:span 2}
+  .zones .zone:last-child .ph{aspect-ratio:16/7}
+  .calc,.ping-grid,.chat-grid,.spawn,.patch{grid-template-columns:minmax(0,1fr)}
+  .receipt,.patch-photo{position:relative;top:0}
+  .quests{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:200px}
+  .foot{grid-template-columns:1fr 1fr}
+  .foot>div:first-child{grid-column:span 2}
+}
+@media (max-width:760px){
+  body{padding-bottom:76px;font-size:15.5px}
+  .wrap{padding:0 16px}
+  .sec{padding:68px 0}
+  .nav .wrap{height:60px}
+  .nav-cta .btn-ghost{display:none}
+  .logo-word{font-size:22px}
+  .hero{min-height:0;padding:44px 0 40px}
+  .hero-bg img{object-position:62% 40%}
+  .hero-bg::after{background:linear-gradient(180deg,rgba(6,9,19,.78) 0%,rgba(6,9,19,.9) 55%,var(--bg) 100%)}
+  .hero-btns .btn{flex:1 1 100%}
+  .hud-time{font-size:44px}
+  .zones,.quests{grid-template-columns:1fr}
+  .zones .zone:last-child{grid-column:auto}
+  .zones .zone:last-child .ph{aspect-ratio:4/3}
+  .price-wrap,.calc-form{padding:20px 16px}
+  .ptable th,.ptable td{padding:12px 8px}
+  .ptable td.n{font-size:16px}
+  .ptable td.n em{display:block;margin:4px 0 0}
+  .row2{grid-template-columns:1fr}
+  .gallery{grid-auto-rows:160px;gap:10px}
+  .gallery .wide{grid-column:span 2}
+  .arena{min-height:300px}
+  .map{min-height:320px}
+  .entry{grid-template-columns:100px 1fr}
+  .foot{grid-template-columns:1fr}
+  .foot>div:first-child{grid-column:auto}
+  .mbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(6,9,19,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line2)}
+  .mbar .btn{padding:14px 10px}
+  body.owner .owner-badge{bottom:84px}
+}
+@media (max-width:400px){
+  .opt{padding:10px 11px;font-size:13.5px}
+  .rc-total b{font-size:28px}
+  .stamp{font-size:12px;padding:7px 8px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.4 4.8 5-1.3A9.8 9.8 0 1 0 12 2.2zm0 17.8c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.7 4.3 3.8 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.5-.3z"/></symbol>
+  <symbol id="i-tg" viewBox="0 0 24 24" fill="currentColor"><path d="M21.4 4.3 2.9 11.5c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.5c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.5c.3-1.3-.5-1.9-1.4-1.5zM9.7 14.6l-.4 4-1.4-4.6L18 7.6l-8.3 7z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-bus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 11h16M8 21v-3M16 21v-3"/><circle cx="8" cy="14.5" r=".6"/><circle cx="16" cy="14.5" r=".6"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12.6a10 10 0 0 1 14 0M8.5 16.1a5 5 0 0 1 7 0M2 8.8a15 15 0 0 1 20 0"/><circle cx="12" cy="20" r=".8"/></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></symbol>
+</svg>
+
+<div class="demo-bar">Демо-версия нового сайта <b>Ping Cyber Club</b></div>
+<div class="wm" aria-hidden="true"></div>
+<div class="owner-badge">Режим владельца · заметки</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Ping Cyber Club — наверх">
+      <span class="logo-word">P<i>!</i>NG</span>
+      <span class="logo-sub">Cyber Sport Club</span>
+    </a>
+    <nav class="nav-links" aria-label="Разделы">
+      <a href="#zones">Зоны</a>
+      <a href="#prices">Цены</a>
+      <a href="#party">Бронь</a>
+      <a href="#ping">Тест пинга</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#spawn">Как найти</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-sm" href="tel:+79850438588"><svg><use href="#i-phone"/></svg>+7 985 043-85-88</a>
+      <a class="btn btn-main btn-sm" href="#party">Забронировать</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <figure class="hero-bg ph">
+    <img src="https://avatars.mds.yandex.net/get-altay/1784631/2a000001872e46aeac07830171474dd86cfa/XXXL" alt="Общий зал Ping Cyber Club с синей подсветкой" fetchpriority="high">
+    <span class="ph-tag">демо</span>
+  </figure>
+  <div class="wrap">
+    <div>
+      <span class="hud-line"><span class="dot"></span>Сервер «Пушкино» · онлайн 24/7</span>
+      <h1>Низкий <span class="c">пинг</span>.<br>Высокий FPS.<br><span class="p">Круглые сутки.</span></h1>
+      <p class="hero-lead">Ping Cyber Club — компьютерный клуб на Московском проспекте: <b>19 игровых ПК</b> с мониторами 144&nbsp;Гц, Bootcamp ровно на команду из пяти и <b>PS5 с диваном</b>. Открыто круглосуточно, час в общем зале — <b>90&nbsp;₽</b>, с регистрацией — 80&nbsp;₽.</p>
+      <div class="hero-btns">
+        <a class="btn btn-main" href="#party">Собрать пати и посчитать</a>
+        <a class="btn btn-ghost" href="tel:+79850438588"><svg><use href="#i-phone"/></svg>Позвонить админу</a>
+      </div>
+      <div class="hero-stats">
+        <span class="chip"><b>19</b> ПК</span>
+        <span class="chip"><b>144</b> Гц</span>
+        <span class="chip"><b>PS5</b> зона</span>
+        <span class="chip"><b>24/7</b> без выходных</span>
+        <span class="chip"><b>★ 4,6</b> Яндекс Карты</span>
+      </div>
+      <div class="owner-note"><b>Для владельца:</b> первый экран сразу отвечает на три вопроса гостя — где, сколько стоит и открыто ли сейчас. Часы на карточке справа живые, по московскому времени.</div>
+    </div>
+    <aside class="hud-card" aria-label="Статус клуба">
+      <div class="hud-k">Сейчас в Пушкино</div>
+      <div class="hud-time mono" id="clock">--:--</div>
+      <div class="hud-open"><span class="dot"></span>Клуб открыт — работаем круглосуточно</div>
+      <ul class="hud-list">
+        <li><span>Общий зал Standart</span><span>14 ПК</span></li>
+        <li><span>Bootcamp</span><span>5 ПК</span></li>
+        <li><span>Консольная зона</span><span>PS5</span></li>
+        <li><span>Час в общем зале</span><span>90 ₽</span></li>
+      </ul>
+      <div class="hud-tip" id="hud-tip">По четвергам час дешевле на 10&nbsp;₽ — в обоих залах.</div>
+    </aside>
+  </div>
+</section>
+
+<!-- ===== ЗОНЫ ===== -->
+<section class="sec" id="zones">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="kicker">01 · выбор карты</div>
+        <h2>Три зоны под любой режим игры</h2>
+      </div>
+      <p class="sec-sub">Залетаешь соло на пару каток, тренируешься пятёркой или рубишься с другом в FC на диване — место найдётся.</p>
+    </div>
+    <div class="zones">
+      <article class="zone rv" style="--zc:var(--cyan)">
+        <figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/927916/2a000001872e46a5a4784e1a2097e3c15b9a/XL" alt="Общий зал Standart" loading="lazy"><span class="ph-tag">демо</span></figure>
+        <span class="zone-badge">Standart</span>
+        <div class="zone-body">
+          <h3>Общий зал <small>14 ПК</small></h3>
+          <p>Большой зал с подсветкой: приходи компанией, садитесь рядом и играйте в одном лобби.</p>
+          <ul class="specs">
+            <li>Intel Core i5 13-го поколения, DDR5</li>
+            <li>NVIDIA GeForce RTX 3070</li>
+            <li>Мониторы AOC 144 Гц</li>
+            <li>Гарнитуры Corsair</li>
+          </ul>
+          <div class="zone-price"><div><b>90 ₽</b> <span>/ час</span></div><a href="#party" data-zone="standart">Посчитать →</a></div>
+        </div>
+      </article>
+      <article class="zone rv" style="--zc:var(--lime)">
+        <figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/240733/2a000001872e481aac6de6c8d4b54ea84409/XL" alt="Зона Bootcamp с игровыми креслами" loading="lazy"><span class="ph-tag">демо</span></figure>
+        <span class="zone-badge">Bootcamp</span>
+        <div class="zone-body">
+          <h3>Bootcamp <small>5 ПК</small></h3>
+          <p>Отдельная зона ровно на команду 5×5 — для CS2, Dota 2 и тренировок перед турниром.</p>
+          <ul class="specs">
+            <li>Intel Core i7 13-го поколения, DDR5</li>
+            <li>NVIDIA GeForce RTX 4070</li>
+            <li>Мониторы BenQ 24″ 144 Гц</li>
+            <li>Девайсы HyperX</li>
+          </ul>
+          <div class="zone-price"><div><b>120 ₽</b> <span>/ час</span></div><a href="#party" data-zone="bootcamp">Посчитать →</a></div>
+        </div>
+      </article>
+      <article class="zone rv" style="--zc:var(--pink)">
+        <figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/992583/2a000001872e46ae3da9e5918b7639b068df/XL" alt="Консольная зона: телевизор и диван" loading="lazy"><span class="ph-tag">демо</span></figure>
+        <span class="zone-badge">PS5</span>
+        <div class="zone-body">
+          <h3>Консоли <small>PS5</small></h3>
+          <p>Большой телевизор, мягкий диван и геймпады. Идеально, чтобы выяснить, кто тут главный по FC.</p>
+          <ul class="specs">
+            <li>Sony PlayStation 5</li>
+            <li>FC, UFC, Mortal Kombat, God of War</li>
+            <li>Диван на компанию</li>
+            <li>Бронь через админа</li>
+          </ul>
+          <div class="zone-price"><div><span>Цену уточняйте у админа</span></div><a href="#party" data-zone="ps5">Забронировать →</a></div>
+        </div>
+      </article>
+    </div>
+    <p class="note rv">Конфигурации ПК — по новостям клуба (май 2023) и карточке на Langame. Клуб обновляет железо каждое лето, актуальное уточняйте у администратора.</p>
+  </div>
+</section>
+
+<!-- ===== ЦЕНЫ ===== -->
+<section class="sec" id="prices" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="kicker">02 · внутриигровой магазин</div>
+        <h2>Цены без доната</h2>
+      </div>
+      <p class="sec-sub">Пакеты выгоднее почасовой игры, а у зарегистрированных гостей всё дешевле. Переключи и сравни.</p>
+    </div>
+    <div class="price-wrap rv">
+      <div class="price-top">
+        <div class="seg" role="group" aria-label="Тип гостя">
+          <button type="button" data-guest="g" aria-pressed="true">Гость</button>
+          <button type="button" data-guest="r" aria-pressed="false">С регистрацией</button>
+        </div>
+        <span class="thu-flag">🔥 Акция по четвергам — 30 минут и час дешевле</span>
+      </div>
+      <div class="ptable-scroll">
+        <table class="ptable" id="ptable">
+          <thead><tr><th>Тариф</th><th class="st">Standart</th><th class="bc">Bootcamp</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <p class="note rv">Прайс — <a href="https://yandex.ru/maps/org/ping_cyber_club/32935843200/gallery/" target="_blank" rel="noopener">с фото на Яндекс Картах</a> (2025). Время пакетов «Утро» и «Ночь» и цены на PS5 уточняйте у администратора.</p>
+    <div class="owner-note"><b>Для владельца:</b> прайс собран с фото на Яндекс Картах. Пришлите актуальный — обновим за пять минут. Цены на PS5 и время пакетов «Утро»/«Ночь» в открытых источниках не нашли.</div>
+  </div>
+</section>
+
+<!-- ===== КАЛЬКУЛЯТОР ===== -->
+<section class="sec" id="party" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="kicker">03 · собрать пати</div>
+        <h2>Посчитай катку<br>на всю компанию</h2>
+      </div>
+      <p class="sec-sub">Выбери зону, сколько вас и на сколько. Калькулятор сам найдёт самый выгодный пакет, а заявка улетит админу в WhatsApp.</p>
+    </div>
+    <div class="calc">
+      <form class="calc-form rv" id="calc" onsubmit="return false">
+        <div class="field">
+          <span class="lbl">Зона</span>
+          <div class="opts" id="f-zone">
+            <button type="button" class="opt" data-v="standart" aria-pressed="true">Standart<small>14 ПК · RTX 3070</small></button>
+            <button type="button" class="opt" data-v="bootcamp" aria-pressed="false">Bootcamp<small>5 ПК · RTX 4070</small></button>
+            <button type="button" class="opt" data-v="ps5" aria-pressed="false">PS5<small>консоль + диван</small></button>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lbl" id="l-players">Сколько вас</span>
+          <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px">
+            <div class="stepper" role="group" aria-labelledby="l-players">
+              <button type="button" id="p-minus" aria-label="Меньше игроков">−</button>
+              <output id="p-val" aria-live="polite">2</output>
+              <button type="button" id="p-plus" aria-label="Больше игроков">+</button>
+            </div>
+            <span class="stepper-hint" id="p-hint">до 14 мест</span>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lbl">Когда</span>
+          <div class="opts" id="f-day"></div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="f-time">Во сколько придёте</label>
+            <select id="f-time"></select>
+          </div>
+          <div class="field">
+            <span class="lbl">Формат</span>
+            <div class="opts" id="f-mode">
+              <button type="button" class="opt" data-v="hours" aria-pressed="true">По часам</button>
+              <button type="button" class="opt" data-v="morning" aria-pressed="false">Утро</button>
+              <button type="button" class="opt" data-v="night" aria-pressed="false">Ночь</button>
+              <button type="button" class="opt" data-v="day" aria-pressed="false">Сутки</button>
+            </div>
+          </div>
+        </div>
+        <div class="field" id="f-hours-wrap">
+          <label for="f-hours">Сколько играть</label>
+          <div class="range">
+            <input type="range" id="f-hours" min="0.5" max="12" step="0.5" value="3">
+            <output id="h-val">3 часа</output>
+          </div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="f-reg">
+          <span class="tr"></span>
+          <span>Я зарегистрирован в клубе<small>У зарегистрированных гостей цены ниже</small></span>
+        </label>
+      </form>
+
+      <aside class="receipt rv" aria-live="polite">
+        <div class="rc-head">
+          <div class="logo"><span class="logo-word">P<i>!</i>NG</span><span class="logo-sub">Cyber Sport Club</span></div>
+          <div class="stamp">Демо-расчёт</div>
+        </div>
+        <div class="rc-no">ЧЕК № <span id="rc-no">0001</span> · Пушкино, 24/7</div>
+        <ul class="rc-lines">
+          <li><span>Зона</span><span id="r-zone">—</span></li>
+          <li><span>Мест</span><span id="r-seats">—</span></li>
+          <li><span>Когда</span><span id="r-when">—</span></li>
+          <li><span>Тариф</span><span id="r-tariff">—</span></li>
+          <li><span>За место</span><span id="r-each">—</span></li>
+        </ul>
+        <div class="rc-total"><span>Итого</span><b id="r-total">—</b></div>
+        <div class="rc-hint" id="r-hint"></div>
+        <div class="rc-btns">
+          <a class="btn btn-wa" id="r-wa" href="https://wa.me/79850438588" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Отправить бронь в WhatsApp</a>
+          <a class="btn btn-ghost" href="tel:+79850438588"><svg><use href="#i-phone"/></svg>Или позвонить</a>
+        </div>
+        <p class="rc-small">Демо-расчёт по прайсу с Яндекс Карт. Точную сумму и наличие мест подтвердит администратор.</p>
+      </aside>
+    </div>
+    <div class="owner-note"><b>Для владельца:</b> заявка приходит в WhatsApp уже собранной — зона, сколько мест, день, время и тариф. Админу не нужно переспрашивать, а гость видит цену заранее. В отзывах жалуются на потерянные брони — такая заявка остаётся в переписке.</div>
+  </div>
+</section>
+
+<!-- ===== КВЕСТЫ ===== -->
+<section class="sec" id="quests" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="kicker">04 · ежедневные квесты</div>
+        <h2>Как играть дешевле</h2>
+      </div>
+      <p class="sec-sub">Никаких скрытых условий — только реальные акции и пакеты из прайса клуба.</p>
+    </div>
+    <div class="quests">
+      <article class="quest rv"><div class="q-top"><span class="q-ico">🔥</span><span class="q-xp">−10 ₽/ч</span></div><h3>Четверговый буст</h3><p>Каждый четверг час в Standart — 80&nbsp;₽ вместо 90, в Bootcamp — 110&nbsp;₽ вместо 120.</p><div class="q-bar" style="--w:58%"><i></i></div></article>
+      <article class="quest rv"><div class="q-top"><span class="q-ico">🪪</span><span class="q-xp">до −150 ₽</span></div><h3>Зарегистрируйся в клубе</h3><p>Для зарегистрированных гостей цены ниже на всё: от 30 минут до пакета «Сутки».</p><div class="q-bar" style="--w:72%"><i></i></div></article>
+      <article class="quest rv"><div class="q-top"><span class="q-ico">⏱️</span><span class="q-xp">−220 ₽</span></div><h3>Бери пакет, а не часы</h3><p>7 часов в Standart по пакету — 410&nbsp;₽. Почасово вышло бы 630&nbsp;₽.</p><div class="q-bar" style="--w:86%"><i></i></div></article>
+      <article class="quest rv"><div class="q-top"><span class="q-ico">🌙</span><span class="q-xp">399 ₽</span></div><h3>Ночной рейд</h3><p>Пакет «Ночь» — 399&nbsp;₽ в Standart и 499&nbsp;₽ в Bootcamp. Клуб открыт всю ночь.</p><div class="q-bar" style="--w:44%"><i></i></div></article>
+      <article class="quest rv"><div class="q-top"><span class="q-ico">🎁</span><span class="q-xp">лут другу</span></div><h3>Подарочный сертификат</h3><p>Сертификат любого номинала на все услуги клуба — подарок, который точно не пылится.</p><div class="q-bar" style="--w:30%"><i></i></div></article>
+      <article class="quest rv"><div class="q-top"><span class="q-ico">🏆</span><span class="q-xp">призы</span></div><h3>Турниры клуба</h3><p>В клубе проходили турниры по Dota 2 и EA FC с денежными призами. Анонсы — в Telegram.</p><div class="q-bar" style="--w:64%"><i></i></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ТЕСТ ПИНГА ===== -->
+<section class="sec" id="ping" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="kicker">05 · мини-игра</div>
+        <h2>Какой пинг<br>у твоих рук?</h2>
+      </div>
+      <p class="sec-sub">Жми, как только поле станет бирюзовым. Пять попыток — и мы посчитаем твою реакцию в миллисекундах.</p>
+    </div>
+    <div class="ping-grid">
+      <div class="arena rv" id="arena" role="button" tabindex="0" data-state="idle" aria-live="assertive" aria-label="Тест реакции. Нажмите, чтобы начать">
+        <div class="big" id="a-big">Нажми, чтобы начать</div>
+        <div class="small" id="a-small">Мышкой, пальцем или пробелом. Не торопись — фальстарт не засчитаем.</div>
+        <div class="rounds" id="a-rounds"><i></i><i></i><i></i><i></i><i></i></div>
+        <div id="a-rank"></div>
+      </div>
+      <div class="ping-side">
+        <div class="card rv">
+          <h3>Почему 144 Гц решают</h3>
+          <p>На обычном мониторе 60 Гц новый кадр приходит раз в 16,7&nbsp;мс. На 144 Гц — раз в 6,9&nbsp;мс: противник появляется на экране раньше, чем ты успеешь моргнуть.</p>
+          <div class="hz">
+            <div class="hz-row"><span>60 Гц</span><span class="bar"><i></i></span><span>16,7 мс</span></div>
+            <div class="hz-row"><span>144 Гц</span><span class="bar"><i></i></span><span>6,9 мс</span></div>
+          </div>
+        </div>
+        <div class="card rv">
+          <h3>Твой рекорд</h3>
+          <ul class="score-list">
+            <li><span>Лучший результат</span><span id="best">—</span></li>
+            <li><span>Последняя серия</span><span id="last">—</span></li>
+          </ul>
+          <a class="btn btn-main btn-sm" href="#party" style="margin-top:16px;width:100%">Проверить реакцию в клубе</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ГАЛЕРЕЯ ===== -->
+<section class="sec" id="gallery" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="kicker">06 · скриншоты</div>
+        <h2>Как выглядит клуб</h2>
+      </div>
+      <p class="sec-sub">Синяя подсветка, ряды игровых мест и холодильник с напитками у входа в зал.</p>
+    </div>
+    <div class="gallery rv">
+      <figure class="ph tall"><img src="https://avatars.mds.yandex.net/get-altay/8072647/2a0000018435a39d292573c8057ca15ca94c/XL" alt="Игровой зал и холодильник с напитками" loading="lazy"><figcaption>Зал и напитки</figcaption><span class="ph-tag">демо</span></figure>
+      <figure class="ph wide"><img src="https://avatars.mds.yandex.net/get-altay/1007082/2a000001872e46a5e6c1570dc5603475b046/XL" alt="Общий вид игрового зала" loading="lazy"><figcaption>Общий зал целиком</figcaption><span class="ph-tag">демо</span></figure>
+      <figure class="ph tall"><img src="https://avatars.mds.yandex.net/get-altay/5538812/2a0000018435a422487dcac75cb6a0872901/XL" alt="Игрок за компьютером в общем зале" loading="lazy"><figcaption>Катка в разгаре</figcaption><span class="ph-tag">демо</span></figure>
+      <figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/923092/2a000001872e4698d6f79c6ef83ae91efbd4/XL" alt="Ряд игровых компьютеров" loading="lazy"><figcaption>Игровые места</figcaption><span class="ph-tag">демо</span></figure>
+      <a class="gal-more" href="https://yandex.ru/maps/org/ping_cyber_club/32935843200/gallery/" target="_blank" rel="noopener"><b>20+</b><span>Все фото клуба на Яндекс Картах →</span></a>
+    </div>
+    <div class="owner-note"><b>Для владельца:</b> большинство фото на картах — 2022–2023 годов. Свежая съёмка зала сделает сайт ещё сильнее, подставим за вечер.</div>
+  </div>
+</section>
+
+<!-- ===== ПАТЧНОУТЫ ===== -->
+<section class="sec" id="patch" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="kicker">07 · патчноуты</div>
+        <h2>История обновлений</h2>
+      </div>
+      <p class="sec-sub">Клуб растёт вместе с игроками — каждое лето железо обновляется.</p>
+    </div>
+    <div class="patch">
+      <figure class="ph patch-photo rv"><img src="https://avatars.mds.yandex.net/get-altay/1546166/2a00000169a23a21a9d2f1e11cb09d8c5c7c/XL" alt="Первый зал клуба Ping в 2019 году" loading="lazy"><figcaption>v1.0 · первый зал, 2019</figcaption><span class="ph-tag">демо</span></figure>
+      <ol class="log">
+        <li class="rv"><span class="v">v1.0 <em>2019</em></span><h3>Ping на карте Пушкино</h3><p>Первые фото зала и первые отзывы игроков на Яндекс Картах.</p></li>
+        <li class="rv"><span class="v">v1.3 <em>март 2021</em></span><h3>+ PlayStation 5</h3><p>В клубе появляется консоль нового поколения.</p></li>
+        <li class="rv"><span class="v">v1.4 <em>август 2021</em></span><h3>Апгрейд общего зала</h3><p>Видеокарты <code>RTX 3060 12 ГБ</code> с трассировкой лучей и процессоры 10–11-го поколения.</p></li>
+        <li class="rv"><span class="v">v1.5 <em>ноябрь 2021</em></span><h3>Bootcamp на RTX 3070</h3><p>Отдельная зона получает видеокарты помощнее.</p></li>
+        <li class="rv"><span class="v">v2.0 <em>июль 2022</em></span><h3>Большой переезд</h3><p>Клуб переезжает в большое просторное помещение — в том же доме, в 10 метрах от старого.</p></li>
+        <li class="rv"><span class="v">v2.1 <em>май 2023</em></span><h3>Железо 13-го поколения</h3><p>Bootcamp: <code>i7 13th</code> + <code>DDR5</code> + <code>RTX 4070</code>. Общий зал: <code>i5 13th</code> + <code>DDR5</code> + <code>RTX 3070</code>.</p></li>
+        <li class="rv"><span class="v">v2.2 <em>2023–2024</em></span><h3>Турниры</h3><p>Турнир по Dota 2 (июль 2023) и по FC 24 (март 2024) с призовым фондом из взносов.</p></li>
+        <li class="rv next"><span class="v">v3.0 <em>скоро</em></span><h3>Новый сайт</h3><p>Онлайн-расчёт брони, прайс в два клика и заявка в WhatsApp. Ты сейчас смотришь на него.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ОТЗЫВЫ ===== -->
+<section class="sec" id="reviews" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="kicker">08 · чат лобби</div>
+        <h2>Что пишут игроки</h2>
+      </div>
+      <p class="sec-sub">Реальные отзывы гостей клуба с Яндекс Карт.</p>
+    </div>
+    <div class="chat-grid">
+      <div class="rating rv">
+        <div class="score">4,6</div>
+        <div class="stars" aria-label="Рейтинг 4,6 из 5">★★★★★</div>
+        <div class="src">153 оценки и 61 отзыв на Яндекс Картах</div>
+        <hr>
+        <div class="score" style="font-size:44px">4,7</div>
+        <div class="src">98 оценок на Cybersportclubs</div>
+        <a class="btn btn-ghost btn-sm" style="margin-top:20px;width:100%" href="https://yandex.ru/maps/org/ping_cyber_club/32935843200/reviews/" target="_blank" rel="noopener">Все отзывы на Яндексе</a>
+      </div>
+      <div class="chat rv">
+        <div class="chat-top"><span>#общий-чат</span><span>● 8 сообщений</span></div>
+        <ul class="msgs">
+          <li class="msg"><span class="when">ноя 2025</span><span class="who" style="color:var(--cyan)">Poltarik.1408</span><span class="st">★★★★★</span><p>Отличный компьютерный клуб, хорошие компы и девайсы, администратор Андрей — высококвалифицированный специалист.</p></li>
+          <li class="msg"><span class="when">окт 2025</span><span class="who" style="color:var(--pink)">Arqeik</span><span class="st">★★★★★</span><p>Админы классные &lt;3 Компы мощные. Атмосфера приятная.</p></li>
+          <li class="msg"><span class="when">июн 2025</span><span class="who" style="color:var(--lime)">Kornei Medvedev</span><span class="st">★★★★★</span><p>Имба пк клуб, советую всем к посещению.</p></li>
+          <li class="msg"><span class="when">май 2025</span><span class="who" style="color:#a99bff">Рома Москвичев</span><span class="st">★★★★★</span><p>Плюсы: недорого, много хороших игр, добрый персонал всегда поможет.</p></li>
+          <li class="msg"><span class="when">апр 2025</span><span class="who" style="color:var(--amber)">Step</span><span class="st">★★★★★</span><p>Очень хороший дизайн всего зала. Хорошие и отзывчивые админы. Постоянная скидка постоянным клиентам.</p></li>
+          <li class="msg"><span class="when">янв 2024</span><span class="who" style="color:var(--cyan)">Арсений Климов</span><span class="st">★★★★★</span><p>Хорошее место для приятного вечера, наверное, самые деловые цены в городе. Отдельно отмечу администраторов Андрея и Тамару — очень лояльные и отзывчивые.</p></li>
+          <li class="msg"><span class="when">окт 2023</span><span class="who" style="color:var(--pink)">Николай Б.</span><span class="st">★★★★★</span><p>Отличное место, чтобы поиграть в любое время дня и ночи по приемлемым ценам.</p></li>
+          <li class="msg"><span class="when">ноя 2020</span><span class="who" style="color:var(--lime)">Alt F.</span><span class="st">★★★★★</span><p>Отличный игровой клуб с мощными компами и недорогими ценами. Ходим с друзьями уже второй год.</p></li>
+        </ul>
+      </div>
+    </div>
+    <div class="owner-note"><b>Для владельца:</b> показаны реальные отзывы с Яндекс Карт с именами авторов. Ссылка «Все отзывы» ведёт на вашу карточку — сайт поможет собирать новые оценки.</div>
+  </div>
+</section>
+
+<!-- ===== КАК НАЙТИ ===== -->
+<section class="sec" id="spawn" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="kicker">09 · точка спавна</div>
+        <h2>Как нас найти</h2>
+      </div>
+      <p class="sec-sub">Цокольный этаж жилого дома на Московском проспекте. Ищи вывеску PING у входа с торца.</p>
+    </div>
+    <div class="spawn">
+      <div class="map rv">
+        <iframe title="Ping Cyber Club на Яндекс Картах" src="https://yandex.ru/map-widget/v1/?ll=37.861217%2C55.996956&amp;z=16&amp;pt=37.861217%2C55.996956%2Cpm2rdm" loading="lazy" allowfullscreen></iframe>
+      </div>
+      <div class="spawn-info rv">
+        <div class="addr">Пушкино, Московский проспект, 57,&nbsp;корп.&nbsp;2</div>
+        <ul class="facts">
+          <li><svg><use href="#i-pin"/></svg><span><b>Вход с торца здания</b>, цокольный этаж</span></li>
+          <li><svg><use href="#i-bus"/></svg><span>Остановка «Микрорайон Арманд» — <b>231 м</b></span></li>
+          <li><svg><use href="#i-clock"/></svg><span><b>Круглосуточно</b>, без выходных</span></li>
+          <li><svg><use href="#i-card"/></svg><span>Наличные, карта, СБП и QR-код</span></li>
+          <li><svg><use href="#i-wifi"/></svg><span>Wi-Fi, парковка и велопарковка рядом</span></li>
+        </ul>
+        <div class="entry">
+          <figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/7383884/2a0000018435a31825a031d3c1129eeffae1/L" alt="Вход в клуб с вывеской PING" loading="lazy"><span class="ph-tag">демо</span></figure>
+          <div><b>Ищи вывеску PING</b><p>Стеклянные двери под табличкой Cyber Sport Club. Если заблудился — звони, админ подскажет.</p></div>
+        </div>
+        <div class="contact-btns">
+          <a class="btn btn-main" href="https://yandex.ru/maps/?rtext=~55.996956%2C37.861217&amp;rtt=auto" target="_blank" rel="noopener"><svg><use href="#i-route"/></svg>Маршрут</a>
+          <a class="btn btn-ghost" href="tel:+79850438588"><svg><use href="#i-phone"/></svg>Позвонить</a>
+          <a class="btn btn-wa" href="https://wa.me/79850438588?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+          <a class="btn btn-ghost" href="https://t.me/pingpushkino1" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg>Telegram</a>
+          <a class="btn btn-ghost" href="https://vk.com/pingclub_pushkino" target="_blank" rel="noopener"><b class="mono" style="font-size:13px">VK</b>ВКонтакте</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="sec" id="faq" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="kicker">10 · правила сервера</div>
+        <h2>Частые вопросы</h2>
+      </div>
+    </div>
+    <div class="faq rv">
+      <details><summary>Вы правда работаете круглосуточно?</summary><p>Да, клуб открыт 24/7 без выходных. В праздничные дни график может меняться — перед визитом в праздник лучше набрать администратору.</p></details>
+      <details><summary>Как забронировать место?</summary><p>Соберите заявку в калькуляторе и отправьте в WhatsApp, напишите в Telegram или позвоните по номеру +7 985 043-85-88. Для пятёрки лучше бронировать Bootcamp заранее.</p></details>
+      <details><summary>Чем отличается Standart от Bootcamp?</summary><p>Standart — общий зал на 14 ПК с RTX 3070. Bootcamp — отдельная зона на 5 ПК с RTX 4070, i7 и девайсами HyperX: удобно играть командой. Час в Bootcamp стоит 120 ₽, в общем зале — 90 ₽.</p></details>
+      <details><summary>Что значит «цена для зарегистрированных»?</summary><p>Гости, у которых есть аккаунт в клубе, платят меньше — от 5 ₽ за полчаса до 150 ₽ на пакете «Сутки». Как зарегистрироваться, подскажет администратор.</p></details>
+      <details><summary>Можно ли перекусить?</summary><p>Да: у администратора есть напитки, батончики и снеки, а в зале стоит холодильник с газировкой и энергетиками.</p></details>
+      <details><summary>Как оплатить?</summary><p>Наличными, банковской картой, по СБП или QR-коду. Есть подарочные сертификаты любого номинала.</p></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#top" class="logo"><span class="logo-word">P<i>!</i>NG</span><span class="logo-sub">Cyber Sport Club</span></a>
+        <p>Компьютерный клуб в Пушкино: 19 игровых ПК, Bootcamp, PS5. Круглосуточно.</p>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="tel:+79850438588">+7 (985) 043-85-88</a></li>
+          <li><a href="https://wa.me/79850438588" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://t.me/pingpushkino1" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://vk.com/pingclub_pushkino" target="_blank" rel="noopener">ВКонтакте</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Адрес</h4>
+        <ul>
+          <li>Пушкино, Московский пр-т, 57, корп. 2</li>
+          <li>Вход с торца, цокольный этаж</li>
+          <li>Круглосуточно</li>
+          <li><a href="https://yandex.ru/maps/org/ping_cyber_club/32935843200/" target="_blank" rel="noopener">Открыть на Яндекс Картах →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="demo-note"><b>Это демо-версия нового сайта.</b> Тексты, цены и фото взяты с Яндекс Карт, Langame, Cybersportclubs и из новостей клуба и могут отличаться от актуальных.</div>
+    <div class="copy">© Ping Cyber Club, Пушкино · демо-версия</div>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-ghost" href="tel:+79850438588"><svg><use href="#i-phone"/></svg>Позвонить</a>
+  <a class="btn btn-wa" href="https://wa.me/79850438588?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var WA = '79850438588';
+
+  // Прайс с фото на Яндекс Картах. g — гость, r — зарегистрированный
+  var PRICES = {
+    standart:{
+      g:{m30:45,h1:90,tm30:40,th1:80,p3:230,p5:310,p7:410,morning:210,night:399,day:1250},
+      r:{m30:40,h1:80,tm30:35,th1:70,p3:200,p5:280,p7:380,morning:180,night:349,day:1100}},
+    bootcamp:{
+      g:{m30:60,h1:120,tm30:55,th1:110,p3:310,p5:410,p7:510,morning:280,night:499,day:1450},
+      r:{m30:55,h1:110,tm30:50,th1:100,p3:280,p5:380,p7:480,morning:250,night:449,day:1300}}
+  };
+  var ZONES = {
+    standart:{name:'Standart (общий зал)',max:14},
+    bootcamp:{name:'Bootcamp',max:5},
+    ps5:{name:'PS5',max:4}
+  };
+
+  function rub(n){ return n.toLocaleString('ru-RU') + ' ₽'; }
+  function plural(n, one, few, many){
+    var a = n % 10, b = n % 100;
+    if (a === 1 && b !== 11) return one;
+    if (a >= 2 && a <= 4 && (b < 12 || b > 14)) return few;
+    return many;
+  }
+  function fmtH(h){
+    if (h === 0.5) return '30 минут';
+    if (h % 1) return String(h).replace('.', ',') + ' часа';
+    return h + ' ' + plural(h, 'час', 'часа', 'часов');
+  }
+  function moscowNow(){
+    var d = new Date();
+    return new Date(d.getTime() + (d.getTimezoneOffset() + 180) * 60000);
+  }
+
+  // ===== Режим владельца =====
+  try { if (new URLSearchParams(location.search).get('owner') === '1') document.body.classList.add('owner'); } catch(e){}
+
+  // ===== Часы и подсказка в hero =====
+  var clock = document.getElementById('clock'), tip = document.getElementById('hud-tip');
+  function tick(){
+    var m = moscowNow();
+    clock.textContent = String(m.getHours()).padStart(2,'0') + ':' + String(m.getMinutes()).padStart(2,'0');
+    var dow = m.getDay(), h = m.getHours();
+    if (dow === 4) tip.textContent = '🔥 Сегодня четверг — час дешевле: 80 ₽ в Standart и 110 ₽ в Bootcamp.';
+    else if (h >= 21 || h < 4) tip.textContent = '🌙 Впереди ночь — пакет «Ночь» в общем зале стоит 399 ₽.';
+    else {
+      var left = (4 - dow + 7) % 7;
+      tip.textContent = '🔥 До четверга скидок ' + left + ' ' + plural(left, 'день', 'дня', 'дней') + '. А пакет на 7 часов уже сейчас — 410 ₽.';
+    }
+  }
+  tick(); setInterval(tick, 15000);
+
+  // ===== Таблица цен =====
+  var ROWS = [
+    {k:'m30', t:'30 минут'},
+    {k:'h1', t:'1 час'},
+    {k:'tm30', t:'30 минут в четверг', thu:true},
+    {k:'th1', t:'1 час в четверг', thu:true},
+    {k:'p3', t:'Пакет 3 часа', hrs:3},
+    {k:'p5', t:'Пакет 5 часов', hrs:5},
+    {k:'p7', t:'Пакет 7 часов', hrs:7, best:true},
+    {k:'morning', t:'Пакет «Утро»', sub:'время уточняйте у админа'},
+    {k:'night', t:'Пакет «Ночь»', sub:'на всю ночь', best:true},
+    {k:'day', t:'Пакет «Сутки»', hrs:24}
+  ];
+  var tbody = document.querySelector('#ptable tbody');
+  function renderPrices(g){
+    tbody.innerHTML = ROWS.map(function(r){
+      var s = PRICES.standart[g][r.k], b = PRICES.bootcamp[g][r.k];
+      var per = function(v){ return r.hrs ? '<em>≈' + Math.round(v / r.hrs) + ' ₽/ч</em>' : ''; };
+      return '<tr class="' + (r.thu ? 'thu ' : '') + (r.best ? 'best' : '') + '"><td>' + r.t + (r.sub ? '<small>' + r.sub + '</small>' : '') +
+        '</td><td class="n">' + rub(s) + per(s) + '</td><td class="n">' + rub(b) + per(b) + '</td></tr>';
+    }).join('');
+  }
+  var segBtns = document.querySelectorAll('[data-guest]');
+  segBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      segBtns.forEach(function(x){ x.setAttribute('aria-pressed', x === btn); });
+      renderPrices(btn.dataset.guest);
+    });
+  });
+  renderPrices('g');
+
+  // ===== Калькулятор =====
+  var st = {zone:'standart', players:2, day:0, mode:'hours', hours:3, reg:false, time:''};
+  var DOW = ['вс','пн','вт','ср','чт','пт','сб'];
+  var MON = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+  var days = [], base = moscowNow();
+  for (var i = 0; i < 7; i++){
+    var d = new Date(base.getFullYear(), base.getMonth(), base.getDate() + i);
+    days.push(d);
+  }
+  var dayBox = document.getElementById('f-day');
+  dayBox.innerHTML = days.map(function(d, i){
+    var name = i === 0 ? 'Сегодня' : i === 1 ? 'Завтра' : DOW[d.getDay()].replace(/^./, function(c){ return c.toUpperCase(); });
+    var thu = d.getDay() === 4;
+    return '<button type="button" class="opt' + (thu ? ' thu' : '') + '" data-v="' + i + '" aria-pressed="' + (i === 0) + '">' + name +
+      '<small>' + d.getDate() + '.' + String(d.getMonth() + 1).padStart(2, '0') + (thu ? ' · скидка' : '') + '</small></button>';
+  }).join('');
+
+  var timeSel = document.getElementById('f-time');
+  var opts = [];
+  for (var t = 0; t < 48; t++){
+    var hh = String(Math.floor(t / 2)).padStart(2, '0') + ':' + (t % 2 ? '30' : '00');
+    opts.push('<option value="' + hh + '">' + hh + '</option>');
+  }
+  timeSel.innerHTML = '<option value="">Как получится</option>' + opts.join('');
+  (function(){
+    var n = moscowNow(), slot = n.getHours() * 2 + (n.getMinutes() < 30 ? 1 : 2);
+    slot = slot % 48;
+    timeSel.value = String(Math.floor(slot / 2)).padStart(2, '0') + ':' + (slot % 2 ? '30' : '00');
+    st.time = timeSel.value;
+  })();
+
+  function hourly(p, h, thu){
+    var full = Math.floor(h), half = h - full >= 0.5;
+    return full * (thu ? p.th1 : p.h1) + (half ? (thu ? p.tm30 : p.m30) : 0);
+  }
+  function bestPlan(p, h, thu){
+    var list = [{name: fmtH(h) + ' почасово', cost: hourly(p, h, thu), hourly: true}];
+    [[3,'p3'],[5,'p5'],[7,'p7']].forEach(function(x){
+      var extra = Math.max(0, h - x[0]);
+      list.push({name: 'Пакет ' + fmtH(x[0]) + (extra ? ' + ' + fmtH(extra) : ''), cost: p[x[1]] + (extra ? hourly(p, extra, thu) : 0), pkg: x[0], extra: extra});
+    });
+    if (h >= 8) list.push({name: 'Пакет «Сутки»', cost: p.day, pkg: 24, extra: 0});
+    list.sort(function(a, b){ return a.cost - b.cost || (a.hourly ? -1 : 1); });
+    return {best: list[0], hourly: list.filter(function(x){ return x.hourly; })[0], all: list};
+  }
+
+  var $ = function(id){ return document.getElementById(id); };
+  function setPressed(box, v){
+    box.querySelectorAll('.opt').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.v === String(v)); });
+  }
+  function bindOpts(id, key, cast){
+    var box = $(id);
+    box.addEventListener('click', function(e){
+      var b = e.target.closest('.opt'); if (!b) return;
+      st[key] = cast ? cast(b.dataset.v) : b.dataset.v;
+      setPressed(box, b.dataset.v);
+      update();
+    });
+  }
+  bindOpts('f-zone', 'zone');
+  bindOpts('f-day', 'day', Number);
+  bindOpts('f-mode', 'mode');
+  $('p-minus').addEventListener('click', function(){ st.players--; update(); });
+  $('p-plus').addEventListener('click', function(){ st.players++; update(); });
+  $('f-hours').addEventListener('input', function(e){ st.hours = Number(e.target.value); update(); });
+  $('f-reg').addEventListener('change', function(e){ st.reg = e.target.checked; update(); });
+  timeSel.addEventListener('change', function(){ st.time = timeSel.value; update(); });
+
+  document.querySelectorAll('[data-zone]').forEach(function(a){
+    a.addEventListener('click', function(){
+      st.zone = a.dataset.zone; setPressed($('f-zone'), st.zone); update();
+    });
+  });
+
+  var rcNo = 1000 + Math.floor(Math.random() * 9000);
+  $('rc-no').textContent = String(rcNo);
+
+  function update(){
+    var z = ZONES[st.zone];
+    st.players = Math.min(Math.max(st.players, 1), z.max);
+    $('p-val').textContent = st.players;
+    $('p-minus').disabled = st.players <= 1;
+    $('p-plus').disabled = st.players >= z.max;
+    $('p-hint').textContent = st.zone === 'ps5' ? 'до 4 игроков на консоли' : 'до ' + z.max + ' ' + plural(z.max, 'места', 'мест', 'мест') + ' в зоне';
+
+    var hw = $('f-hours-wrap');
+    hw.classList.toggle('hidden', st.mode !== 'hours');
+    $('h-val').textContent = fmtH(st.hours);
+
+    var d = days[st.day], thu = d.getDay() === 4;
+    var dayTxt = (st.day === 0 ? 'сегодня, ' : st.day === 1 ? 'завтра, ' : DOW[d.getDay()] + ', ') + d.getDate() + ' ' + MON[d.getMonth()];
+    var when = dayTxt + (st.time ? ', к ' + st.time : '');
+    var modeNames = {morning:'Пакет «Утро»', night:'Пакет «Ночь»', day:'Пакет «Сутки»'};
+
+    $('r-zone').textContent = z.name;
+    $('r-seats').textContent = st.zone === 'ps5' ? st.players + ' ' + plural(st.players, 'игрок', 'игрока', 'игроков') : st.players + ' ' + plural(st.players, 'ПК', 'ПК', 'ПК');
+    $('r-when').textContent = when;
+
+    var hint = $('r-hint'), tariff, each = null, total = null, hintTxt = '', warn = false;
+    if (st.zone === 'ps5'){
+      tariff = st.mode === 'hours' ? fmtH(st.hours) : modeNames[st.mode];
+      hintTxt = 'Цены на PS5 в открытых источниках нет — администратор назовёт стоимость в ответ на заявку.';
+      warn = true;
+    } else {
+      var p = PRICES[st.zone][st.reg ? 'r' : 'g'];
+      if (st.mode === 'hours'){
+        var plan = bestPlan(p, st.hours, thu);
+        tariff = plan.best.name; each = plan.best.cost;
+        if (!plan.best.hourly && plan.hourly.cost > each){
+          var save = (plan.hourly.cost - each) * st.players;
+          hintTxt = '💡 Почасово вышло бы ' + rub(plan.hourly.cost) + ' за место. Пакет экономит ' + rub(save) + (st.players > 1 ? ' на всю пати' : '') + '.';
+          if (plan.best.pkg > st.hours) hintTxt += ' И играть можно до ' + fmtH(plan.best.pkg) + '.';
+        } else {
+          var up = plan.all.filter(function(x){ return x.pkg && x.pkg > st.hours && !x.extra && x.cost - each > 0 && x.cost - each <= 60; })[0];
+          if (up) hintTxt = '💡 Ещё +' + rub(up.cost - each) + ' за место — и это уже пакет ' + fmtH(up.pkg) + '.';
+        }
+        if (thu && plan.best.hourly) hintTxt = (hintTxt ? hintTxt + ' ' : '') + '🔥 Четверг: час по акционной цене.';
+      } else {
+        tariff = modeNames[st.mode]; each = p[st.mode];
+        if (st.mode !== 'day') { hintTxt = 'Время пакета уточните у администратора.'; warn = true; }
+      }
+      if (st.reg) hintTxt = (hintTxt ? hintTxt + ' ' : '') + 'Цена для зарегистрированных гостей.';
+      total = each * st.players;
+    }
+    $('r-tariff').textContent = tariff;
+    $('r-each').textContent = each === null ? 'у админа' : rub(each);
+    $('r-total').textContent = total === null ? '—' : rub(total);
+    hint.textContent = hintTxt;
+    hint.classList.toggle('warn', warn);
+
+    var msg = 'Здравствуйте! Хочу забронировать в Ping Cyber Club:\n' +
+      '• Зона: ' + z.name + '\n' +
+      '• ' + (st.zone === 'ps5' ? 'Игроков' : 'Мест') + ': ' + st.players + '\n' +
+      '• Когда: ' + when + '\n' +
+      '• Тариф: ' + tariff + (st.reg ? ' (я зарегистрирован)' : '') + '\n' +
+      (total !== null ? '• По расчёту на сайте: ' + rub(total) + '\n' : '') +
+      'Места есть?';
+    $('r-wa').href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
+  }
+  update();
+
+  // ===== Тест пинга =====
+  var arena = $('arena'), big = $('a-big'), small = $('a-small'), rounds = $('a-rounds').children, rankBox = $('a-rank');
+  var state = 'idle', t0 = 0, timer = null, res = [];
+  var RANKS = [[200,'Киберкотлета','Реакция уровня про-сцены.'],[240,'Глобал','Ты точно играешь не первый год.'],[290,'Тащер','Уверенно выше среднего.'],[350,'Крепкий середняк','Пара каток в Ping — и будет быстрее.'],[1e9,'Ещё не проснулся','Залетай в клуб размяться.']];
+  function getBest(){ try { return Number(localStorage.getItem('ping_best')) || 0; } catch(e){ return 0; } }
+  function setBest(v){ try { localStorage.setItem('ping_best', String(v)); } catch(e){} }
+  function showBest(){ var b = getBest(); $('best').textContent = b ? b + ' мс' : '—'; }
+  showBest();
+  function paintRounds(){ for (var i = 0; i < rounds.length; i++) rounds[i].className = i < res.length ? 'ok' : ''; }
+  function set(s, b, sm){ state = s; arena.dataset.state = s; big.textContent = b; small.textContent = sm || ''; }
+  function wait(){
+    rankBox.innerHTML = '';
+    set('wait', 'Жди…', 'Попытка ' + (res.length + 1) + ' из 5');
+    timer = setTimeout(function(){ t0 = performance.now(); set('go', 'ЖМИ!', 'Сейчас!'); }, 1100 + Math.random() * 2400);
+  }
+  function hit(){
+    if (state === 'idle' || state === 'done'){ res = []; paintRounds(); wait(); return; }
+    if (state === 'wait'){ clearTimeout(timer); set('early', 'Фальстарт!', 'Поле ещё не стало бирюзовым. Нажми, чтобы повторить попытку.'); return; }
+    if (state === 'early'){ wait(); return; }
+    if (state === 'go'){
+      var ms = Math.round(performance.now() - t0);
+      res.push(ms); paintRounds();
+      if (res.length < 5){
+        set('between', ms + ' мс', 'Отлично. Следующая попытка…');
+        timer = setTimeout(wait, 1000);
+      } else {
+        var avg = Math.round(res.reduce(function(a, b){ return a + b; }, 0) / res.length);
+        var r = RANKS.filter(function(x){ return avg < x[0]; })[0];
+        set('done', 'Твой пинг: ' + avg + ' мс', r[2] + ' Нажми, чтобы сыграть ещё.');
+        rankBox.innerHTML = '<span class="rank">Ранг: ' + r[1] + '</span>';
+        $('last').textContent = res.join(' · ');
+        var b = getBest(); if (!b || avg < b){ setBest(avg); }
+        showBest();
+      }
+    }
+  }
+  arena.addEventListener('pointerdown', function(e){ if (e.button === 0 || e.pointerType !== 'mouse') { e.preventDefault(); hit(); } });
+  arena.addEventListener('keydown', function(e){ if (e.code === 'Space' || e.key === 'Enter'){ e.preventDefault(); if (!e.repeat) hit(); } });
+
+  // ===== Появление при скролле =====
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {rootMargin: '0px 0px -8% 0px'});
+    rv.forEach(function(el){ io.observe(el); });
+  } else {
+    rv.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>
